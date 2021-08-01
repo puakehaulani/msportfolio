@@ -1,0 +1,12 @@
+{
+  "project": [
+    {
+      "_id ": 11,
+      "title": "Currency Converter",
+      "about": "A currency converter concept, created with React Native",
+      "thumbnail": "",
+      "deployment": "https://expo.dev/@lexii/CurrencyConverter",
+      "repo": "https://github.com/puakehaulani/CurrencyConverter"
+    }
+  ]
+}
