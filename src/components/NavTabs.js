@@ -7,10 +7,9 @@ function NavTabs() {
 
     return (
         <nav className="navbar fixed-top px-1 pt-3 navbar-expand-lg navbar-dark ">
-            <HashLink to="#" className="navbar-brand">
+            {/* <HashLink to="#" className="navbar-brand align-top">
                 <img src="../images/logo.png" width="120" height="80" alt="michael scales logo" />
-            </HashLink>
-
+            </HashLink> */}
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

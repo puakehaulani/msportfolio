@@ -109,3 +109,8 @@ a {
   overflow: hidden;
   color: white;
 }
+
+.navbar-nav{
+  writing-mode: vertical-rl;
+text-orientation: mixed;
+}
