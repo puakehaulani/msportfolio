@@ -9,19 +9,14 @@ function About() {
             </div>
             <div className="row mt-5" id="about">
                 <div className="jumbotron col-md-10 bg-dark">
-                    <h2 >aloha, i'm lexi jack</h2>
                     <p>
-                        I'm a full-stack web developer from O‘ahu, Hawai‘i, with a background in service and client relations.
-                        I earned a Certificate in Web Development from the University of Washington in 2021.
-                        My strengths include teamwork, listening, anticipating the needs of clients, and working in
-                        fast paced environments.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p><p>
-                        My motivation comes from my insatiable curiosity and the endorphin rush from solving a
-                        problem. I love to learn.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p><p>
-                        If I'm not coding, I'm probably outside - snowboarding, paddling outrigger canoes, or hanging out at a dog park .
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p><p>
-                        I'm excited to find my technical niche. In the meantime, I plan to continue trying new things and taking on diverse projects.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                 </div>
 
