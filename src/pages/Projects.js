@@ -5,7 +5,7 @@ import ProjectCard from '../components/ProjectCard';
 function Projects() {
 
     return (
-        <div>
+        <div id="projects">
             <Container>
                 <ProjectCard
                 />

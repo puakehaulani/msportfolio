@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { NavHashLink } from 'react-router-hash-link';
 
 function NavTabs() {
     // We'll go into the Hooks API later, for now, we are just using some code
@@ -10,28 +11,28 @@ function NavTabs() {
     return (
         <ul className="nav justify-content-end">
             <li className="nav-item">
-                <Link
-                    to="/portfolio-react/projects"
-                    className={location.pathname === "/projects" ? "nav-link active" : "nav-link"}
+                <NavHashLink
+                    to="/#projects"
+                    className={location.pathname === "/#projects" ? "nav-link active" : "nav-link"}
                 >
                     Projects
-                </Link>
+                </NavHashLink>
             </li>
             <li className="nav-item">
-                <Link
-                    to="/portfolio-react/about"
-                    className={location.pathname === "/about" ? "nav-link active" : "nav-link"}
+                <NavHashLink
+                    to="/#about"
+                    className={location.pathname === "/#about" ? "nav-link active" : "nav-link"}
                 >
                     About
-                </Link>
+                </NavHashLink>
             </li>
             <li className="nav-item">
-                <Link
-                    to="/portfolio-react/resume"
-                    className={location.pathname === "/resume" ? "nav-link active" : "nav-link"}
+                <NavHashLink
+                    to="/#resume"
+                    className={location.pathname === "/#resume" ? "nav-link active" : "nav-link"}
                 >
                     Resume
-                </Link>
+                </NavHashLink>
             </li>
         </ul>
     );

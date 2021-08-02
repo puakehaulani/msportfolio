@@ -3,7 +3,7 @@ import React from "react";
 
 function About() {
     return (
-        <>
+        <div id="about">
             <div className="vertical-nav">
                 {/* <List /> */}
             </div>
@@ -28,7 +28,7 @@ function About() {
             </div>
 
 
-        </>
+        </div>
     );
 }
 
