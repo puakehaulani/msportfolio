@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { HashLink, NavHashLink } from 'react-router-hash-link';
 
 function NavTabs() {
@@ -7,7 +7,7 @@ function NavTabs() {
 
     return (
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark ">
-            <HashLink to="#top" className="navbar-brand">LOGO</HashLink>
+            <HashLink to="#" className="navbar-brand">LOGO</HashLink>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
