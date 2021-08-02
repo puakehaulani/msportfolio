@@ -42,6 +42,14 @@ function NavTabs() {
                                 Resume
                             </NavHashLink>
                         </li>
+                        <li className="nav-item">
+                            <NavHashLink
+                                to="/#contact"
+                                className={location.pathname === "/#contact" ? "nav-link active" : "nav-link"}
+                            >
+                                Contact
+                            </NavHashLink>
+                        </li>
                     </ul>
                 </div>
             </ul>
