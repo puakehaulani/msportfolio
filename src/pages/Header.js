@@ -1,8 +1,6 @@
 import React from 'react';
 
-
-
-export default function Home() {
+export default function Header() {
     return (
         <div className="row d-flex entrance">
             Hey, I'm Michael. <br />
