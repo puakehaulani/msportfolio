@@ -6,15 +6,17 @@ function NavTabs() {
     const location = useLocation();
 
     return (
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark ">
-            <HashLink to="#" className="navbar-brand">LOGO</HashLink>
+        <nav className="navbar fixed-top px-1 pt-3 navbar-expand-lg navbar-dark ">
+            <HashLink to="#" className="navbar-brand">
+                <img src="../images/logo.png" width="120" height="80" alt="michael scales logo" />
+            </HashLink>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav justify-content-end">
+            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavHashLink
                             to="/#projects"
