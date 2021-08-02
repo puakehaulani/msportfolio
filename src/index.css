@@ -16,6 +16,7 @@ body {
   position: relative;
   background-image: linear-gradient(to top, transparent, black),
     url("../src/assets/images/bkg.jpg");
+    /* "Background vector created by freepik - www.freepik.com" */
 background-size: cover;
   background-attachment: fixed;
   background-color: black;
@@ -113,3 +114,4 @@ a {
   writing-mode: vertical-rl;
 text-orientation: mixed;
 }
+
