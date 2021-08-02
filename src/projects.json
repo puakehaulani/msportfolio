@@ -4,9 +4,89 @@
       "_id ": 11,
       "title": "Currency Converter",
       "about": "A currency converter concept, created with React Native",
-      "thumbnail": "",
+      "thumbnail": "./images/projects/currencyconverter.png",
       "deployment": "https://expo.dev/@lexii/CurrencyConverter",
       "repo": "https://github.com/puakehaulani/CurrencyConverter"
+    },
+    {
+      "_id ": 10,
+      "title": "GameStock",
+      "about": "A stock trading simulation app, made with React",
+      "thumbnail": "./images/projects/gamestock.png",
+      "deployment": "https://gamestock-app.herokuapp.com/",
+      "repo": "https://github.com/seattletrade/gamestock"
+    },
+    {
+      "_id ": 9,
+      "title": "Employee Directory",
+      "about": "An employee directory app that is filterable, made with React",
+      "thumbnail": "./images/projects/employeedir.png",
+      "deployment": "https://puakehaulani.github.io/employee-directory/",
+      "repo": "https://github.com/puakehaulani/employee-directory"
+    },
+    {
+      "_id ": 8,
+      "title": "Budget Tracker",
+      "about": "A budget tracking app that allows the user to store offline transactions, made with Node, Express, and NoSQL",
+      "thumbnail": "./images/projects/budgettracker.png",
+      "deployment": "https://warm-atoll-10602.herokuapp.com/",
+      "repo": "https://github.com/puakehaulani/budget-tracker"
+    },
+    {
+      "_id ": 7,
+      "title": "Workout Tracker",
+      "about": "A workout tracking app made with Node, Express, MongoDB and mongoose",
+      "thumbnail": "./images/projects/workouttracker.png",
+      "deployment": "https://polar-coast-38465.herokuapp.com/",
+      "repo": "https://github.com/puakehaulani/workout-tracker"
+    },
+    {
+      "_id ": 6,
+      "title": "Employee Tracker",
+      "about": "A Content Management Systems app to manage a companies employees using Node, inquirer and MySQL",
+      "thumbnail": "./images/projects/employeetracker.png",
+      "deployment": "https://github.com/puakehaulani/Employee_Tracker#Usage",
+      "repo": "https://github.com/puakehaulani/Employee_Tracker"
+    },
+    {
+      "_id ": 5,
+      "title": "Eat da Burger",
+      "about": "A burger logging app made with MySQL, Node, Express, Handlebars and a homemade ORM",
+      "thumbnail": "./images/projects/eatdaburger.png",
+      "deployment": "https://github.com/puakehaulani/eat-da-burger#Getting-Started",
+      "repo": "https://github.com/puakehaulani/eat-da-burger"
+    },
+    {
+      "_id ": 4,
+      "title": "README Generator",
+      "about": "Command line app to generate a README using answers from user prompts, made with Node",
+      "thumbnail": "./images/projects/readmegenerator.png",
+      "deployment": "https://github.com/puakehaulani/README-generator#Getting-Started",
+      "repo": "https://github.com/puakehaulani/README-generator"
+    },
+    {
+      "_id ": 3,
+      "title": "the Hungry App",
+      "about": "Front end app that uses Spoonacular API calls to allow user to find recipes based on what they have in their pantry, and enjoy a joke",
+      "thumbnail": "./images/projects/hungryapp.png",
+      "deployment": "https://puakehaulani.github.io/the-hungry-app-proj1/",
+      "repo": "https://github.com/puakehaulani/the-hungry-app-proj1"
+    },
+    {
+      "_id ": 2,
+      "title": "Weather Dashboard",
+      "about": "A dynamic weather dashboard web app using Open Weather Map's API",
+      "thumbnail": "./images/projects/weatherdashboard.png",
+      "deployment": "https://puakehaulani.github.io/6-Weather-Dashboard/",
+      "repo": "https://github.com/puakehaulani/6-Weather-Dashboard"
+    },
+    {
+      "_id ": 1,
+      "title": "Workday Scheduler",
+      "about": "Front end app that creates a dynamic day planner for a single work day using the Moment.js library",
+      "thumbnail": "./images/projects/workdayscheduler.png",
+      "deployment": "https://puakehaulani.github.io/5-Work-Day-Scheduler/",
+      "repo": "https://github.com/puakehaulani/5-Work-Day-Scheduler"
     }
   ]
 }
