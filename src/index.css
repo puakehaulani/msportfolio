@@ -94,14 +94,14 @@ table {
 }
 
 a {
-  color: black !important;
+  color: white !important;
 }
 
 .entrance {
   margin-top: 100px;
-  font-family: "Bitter", serif;
   font-size: 100px;
   padding: 10px;
   display: inline-block;
   overflow: hidden;
+  color: white;
 }
