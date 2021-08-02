@@ -15,10 +15,7 @@ function App() {
       <>
         <Container>
           <NavTabs />
-          {/* <Route exact path="/" component={Header} /> */}
-          {/*  <Route exact path="/about" component={About} />
-          <Route exact path="/projects" component={Projects} />
-          <Route path="/resume" component={Resume} /> */}
+          {/* <Route path="/" component={Header} /> */}
           <Header />
           <About />
           <Projects />
