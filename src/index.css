@@ -34,7 +34,7 @@ background-size: cover;
 }
 
 .jumbotron {
-  border-radius: 10px;;
+  border-radius: 30px;;
 }
 
 .card {
@@ -86,7 +86,7 @@ footer {
 .adjustLeft {
   /* width: calc(100% -10rem); */
   margin-right: 10rem;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .vertical-nav {
