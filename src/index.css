@@ -103,11 +103,10 @@ a {
 
 .entrance {
   margin-top: 100px;
-  font-size: 100px;
+  font-size: 80px;
   padding: 10px;
   display: inline-block;
   overflow: hidden;
-  color: white;
 }
 
 .navbar-nav{
@@ -115,3 +114,23 @@ a {
 text-orientation: mixed;
 }
 
+.attribute{
+  writing-mode: vertical-rl;
+text-orientation: mixed;
+  position: fixed;
+  right:0;
+  bottom:50%;
+  font-size: xx-small;
+  color: dimgray !important;
+}
+
+.neonText {
+  color: #fff;
+  text-shadow: 
+  0 0 6px rgba(202,228,225,0.92),
+  0 0 30px rgba(202,228,225,0.34),
+  0 0 12px rgba(30,132,242,0.52),
+  0 0 21px rgba(30,132,242,0.92),
+  0 0 34px rgba(30,132,242,0.78),
+  0 0 54px rgba(30,132,242,0.92);
+}
