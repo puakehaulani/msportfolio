@@ -14,7 +14,7 @@ body {
   min-height: 100%;
   padding-bottom: 30px;
   position: relative;
-  background-image: linear-gradient(to top, transparent, black),
+  background-image: linear-gradient(to bottom, black 1%, transparent),
     url("../src/assets/images/bkg.jpg");
     /* "Background vector created by freepik - www.freepik.com" */
 background-size: cover;
