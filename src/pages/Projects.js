@@ -5,11 +5,13 @@ import ProjectCard from '../components/ProjectCard';
 function Projects() {
 
     return (
-        <div id="projects">
-            <Container>
-                <ProjectCard
-                />
-            </Container>
+        <div id="projects" className="row mt-5">
+            <div className="jumbotron col-md-10 bg-dark adjustLeft">
+                <Container>
+                    <ProjectCard
+                    />
+                </Container>
+            </div>
         </div>
     )
 }
