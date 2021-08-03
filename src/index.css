@@ -28,13 +28,13 @@ background-size: cover;
 }
 
 .container {
+  color: white;
   margin-top: 10px;
   margin-bottom: 50px;
 }
 
 .jumbotron {
   border-radius: 10px;;
-  color: white;
 }
 
 .card {
