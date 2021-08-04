@@ -21,7 +21,7 @@ function App() {
         {/* <Route path="/" component={Header} /> */}
         <Parallax
           bgImage={Background}
-          strength={500}
+          strength={550}
         >
           <Header />
         </Parallax>

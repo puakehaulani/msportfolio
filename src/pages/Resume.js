@@ -14,7 +14,6 @@ export default function Resume() {
                         download="resume.pdf">
                         Download
                     </a>
-
                 </div>
             </div >
         </Container>
