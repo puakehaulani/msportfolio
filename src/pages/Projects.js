@@ -6,8 +6,8 @@ function Projects() {
 
     return (
         <div id="projects" className="row mt-5">
-            <div className="d-flex justify-content-start text-nowrap"><h3>Projects</h3></div>
             <div className="jumbotron col-md-10 bg-dark adjustLeft">
+                <div className="d-flex justify-content-start text-nowrap leftHeader"><h1>Projects</h1></div>
                 <Container>
                     <ProjectCard
                     />
