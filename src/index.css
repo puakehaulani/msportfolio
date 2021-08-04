@@ -148,3 +148,8 @@ text-orientation: mixed;
   top: 40px;
   right: 20px
 }
+
+#header {
+  padding-top:10%;
+  padding-bottom: 15%
+}
