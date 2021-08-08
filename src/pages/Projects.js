@@ -9,7 +9,7 @@ function Projects() {
             <div id="projects" className="row mt-5">
                 <div className="jumbotron col-md-10 bg-dark adjustLeft">
                     <div className="d-flex justify-content-start neonText leftHeader"><h1>Projects</h1></div>
-                    <Container>
+                    <Container className="sectionContent">
                         <ProjectCard
                         />
                     </Container>
