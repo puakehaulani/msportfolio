@@ -13,7 +13,7 @@ body {
   min-height: 100%;
   padding-bottom: 30px;
   position: relative;
-  background-color: black;
+background-color: black !important;
   color: white !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,12 +24,13 @@ body {
 
 .container {
 padding-top: 10px;
-padding-bottom: 10px
+padding-bottom: 10px;
 }
 
 .jumbotron {
   border-radius: 30px;
   position: relative;
+  opacity: 99%;
 }
 
 .card {
