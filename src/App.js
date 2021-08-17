@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Parallax } from 'react-parallax';
 
 import NavTabs from "./components/NavTabs";
+import Navigation from "./components/Nav";
 import Header from "./pages/Header";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -15,7 +16,7 @@ function App() {
   return (
     <Router>
       <>
-        <NavTabs />
+        <Navigation />
 
         <Parallax
           bgImage={Background}
