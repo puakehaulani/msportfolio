@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Navigation() {
     return (
-        <Navbar bg="dark" expand="lg">
+        <Navbar bg="transparent" expand="lg" fixed="top">
             <Container>
                 <Navbar.Brand href="#">
                     <img src="../images/logo.png" width="120" height="80" alt="michael scales logo" />
