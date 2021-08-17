@@ -59,10 +59,10 @@ text-orientation: mixed;
   padding-bottom: 3%
 }
 
-/* #header {
-  padding-top:10%;
-  padding-bottom: 15%
-} */
+#header {
+  padding-top: 7rem;
+  padding-bottom: 10rem
+} 
 
 .jumbotron {
   border-radius: 30px;
