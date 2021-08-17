@@ -1,6 +1,5 @@
 import React from 'react';
-import Container from '../components/Container';
-
+import Container from "react-bootstrap/Container";
 export default function Header() {
     return (
         <Container>
