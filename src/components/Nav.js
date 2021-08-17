@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 
 function Navigation() {
     return (
-        <Navbar bg="transparent" expand="lg" fixed="top">
+        <Navbar bg="transparent" variant="dark" expand="lg" fixed="top">
             <ul className="flex-column">
                 <li>
                     <Navbar.Brand href="#">
