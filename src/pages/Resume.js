@@ -9,14 +9,13 @@ export default function Resume() {
 
             <h1 className="d-flex justify-content-end neonText rightHeader">Resume</h1>
 
-            <div className="sectionContent">
-                <Button className="btn btn-danger align-self-start mt-5 mr-5 resumeButton" role="button" href="./resume.pdf"
-                    download="resume.pdf">
-                    Download
-                </Button>
+            <Button className="btn btn-danger align-self-start mt-5 mr-5 resumeButton" role="button" href="./resume.pdf"
+                download="resume.pdf">
+                Download
+            </Button>
 
-                <Image src="./images/resumeimg.png" alt="resume" className="resumeImg" />
-            </div>
+            <Image src="./images/resumeimg.png" alt="resume" className="mx-auto py-auto d-flex flex-wrap resumeImg" />
+
         </Container >
     )
 }
