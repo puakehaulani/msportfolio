@@ -17,11 +17,11 @@ function Navigation() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
 
-                        <Nav className="me-auto">
-                            <Link to="projects">Projects</Link>
-                            <Link to="about">About</Link>
-                            <Link to="resume">Resume</Link>
-                            <Link to="contact">Contact</Link>
+                        <Nav >
+                            <Link to="projects" className="Link">Projects</Link>
+                            <Link to="about" className="Link">About</Link>
+                            <Link to="resume" className="Link">Resume</Link>
+                            <Link to="contact" className="Link">Contact</Link>
                         </Nav>
 
                     </Navbar.Collapse>

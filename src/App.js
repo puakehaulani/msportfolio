@@ -18,23 +18,23 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <Container fluid="true" id="page">
+      <Container fluid="true">
         <Parallax
           bgImage={Background}
           strength={550}>
-          <Element name="header"><Header /></Element>
+          <Element name="header" className="Element"><Header /></Element>
         </Parallax>
 
         <Parallax
           bgImage={Parallax3}
           strength={550}>
-          <Element name="about"><About /></Element>
-          <Element name="projects"><Projects /></Element>
-          <Element name="resume"><Resume /></Element>
+          <Element name="about" className="Element"><About /></Element>
+          <Element name="projects" className="Element"><Projects /></Element>
+          <Element name="resume" className="Element"><Resume /></Element>
         </Parallax>
         <Element name="contact"><Footer /></Element>
       </Container>
-
+      <span className="attribute">created with &lt;3 by lexijack</span>
     </Router >
   );
 }

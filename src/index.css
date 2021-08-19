@@ -20,6 +20,18 @@ a {
   color: white !important;
 }
 
+.Link {
+  cursor: pointer;
+  text-decoration: none;
+  padding-inline: 10px;
+
+}
+
+.Element{
+padding-right: 3rem;
+  padding-left: 7rem
+}
+
 ul{
   list-style-type: none;
 }
