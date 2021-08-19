@@ -20,14 +20,16 @@ a {
   color: white !important;
 }
 
+ul{
+  list-style-type: none;
+}
+
 .container {
 padding-top: 10px;
 padding-bottom: 10px;
 }
 
-#page {
 
-}
 
 .navbar-nav{
   writing-mode: vertical-rl;
