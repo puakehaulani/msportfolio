@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Parallax } from 'react-parallax';
+import Container from "react-bootstrap/Container";
 
 import Navigation from "./components/Nav";
 import Header from "./pages/Header";
@@ -14,9 +15,9 @@ import Parallax3 from "./assets/images/parallax3.jpg";
 function App() {
   return (
     <Router>
-      <>
-        <Navigation />
 
+      <Navigation />
+      <Container fluid="true" id="page">
         <Parallax
           bgImage={Background}
           strength={550}>
@@ -30,9 +31,10 @@ function App() {
           <Projects />
           <Resume />
         </Parallax>
-
         <Footer />
-      </>
+      </Container>
+
+      {/* <Footer /> */}
     </Router >
   );
 }

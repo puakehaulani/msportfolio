@@ -8,10 +8,7 @@ html {
 }
 
 body {
-  /* margin-top: 10rem;
-  margin-bottom: 50px; */
-  /* min-height: 100%; */
-  /* padding-bottom: 30px; */
+  min-height: 100%;
   position: relative;
 background-color: black !important;
   color: white !important;
@@ -26,6 +23,10 @@ a {
 .container {
 padding-top: 10px;
 padding-bottom: 10px;
+}
+
+#page {
+
 }
 
 .navbar-nav{
@@ -74,7 +75,11 @@ text-orientation: mixed;
   font-size: 80px;
   padding: 10px;
   display: inline-block;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+#about {
+  margin-top: 3rem
 }
 
 .neonText {
@@ -133,6 +138,10 @@ text-orientation: mixed;
   color: dimgray !important;
 }
 
+#resume {
+margin-bottom: 3rem;
+}
+
 .resumeImg{
   position: relative;
     top: -10%; 
@@ -150,8 +159,5 @@ footer {
   clear: both;
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background-color: black;
-  opacity: 50%;
-}
+  }
