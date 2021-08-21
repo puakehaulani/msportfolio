@@ -4,9 +4,10 @@ import Container from "react-bootstrap/Container";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
-require('dotenv').config()
+
 
 function App() {
+
   return (
     <Router>
       <Container fluid="true">
