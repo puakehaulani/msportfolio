@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 import { FcGoogle } from 'react-icons/fc';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -8,7 +9,8 @@ import Container from 'react-bootstrap/Container';
 // import { refreshTokenSetup } from '../utils/refreshToken';
 
 const clientId =
-    '707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com';
+    // process.env.GOOGLE_CLIENT_ID
+    '1447611280-t0b9r21g88chllee8v4aqnvorah29808.apps.googleusercontent.com';
 
 function Login() {
     const onSuccess = (res) => {
@@ -22,7 +24,7 @@ function Login() {
     const onFailure = (res) => {
         console.log('Login failed: res:', res);
         alert(
-            `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
+            `Access denied. Failed to login.`
         );
     };
 
@@ -37,10 +39,21 @@ function Login() {
     });
 
     return (
-        <Container><Button onClick={signIn} variant="light" size="lg">
-            <span className="buttonText"><FcGoogle /> Sign in with Google</span>
-        </Button>
+        <Container style={{
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "gray"
+        }}>
+            <Button onClick={signIn} variant="light" size="lg">
+                <span className="buttonText"><FcGoogle /> Sign in with Google</span>
+            </Button>
+
+
         </Container>
+
+
     );
 }
 
