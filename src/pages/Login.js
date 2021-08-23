@@ -21,9 +21,9 @@ function Login() {
 
     const onFailure = (res) => {
         console.log('Login failed: res:', res);
-        // alert(
-        //     `Access denied. Failed to login.`
-        // );
+        alert(
+            `Access denied. Failed to login.`
+        );
     };
 
     const { signIn } = useGoogleLogin({
@@ -31,7 +31,7 @@ function Login() {
         onFailure,
         clientId,
         isSignedIn: true,
-        accessType: 'offline',
+        // accessType: 'offline',
         // responseType: 'code',
         // prompt: 'consent',
     });
