@@ -7,7 +7,8 @@ const projectSchema = new Schema({
     img: { type: String, required: true },
     summary: { type: String, required: true },
     repoURL: { type: String, required: true },
-    deployURL: { type: String }
+    deployURL: { type: String },
+    // category: { type: String, required: true }
 
 });
 
