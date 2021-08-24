@@ -11,12 +11,24 @@ const clientId =
     window.env.GOOGLE_CLIENT_ID
 
 function Login() {
-    const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj);
+    const onSuccess = async googleData => {
+        // console.log('Login Success: currentUser:', res.profileObj);
 
-        alert(
-            `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-        );
+        // alert(
+        //     `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+        // );
+
+        const res = await fetch("/api/auth/google", {
+            method: "POST",
+            body: JSON.stringify({
+                token: googleData.tokenId
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const data = await res.json()
+        console.log("data", data)
         // refreshTokenSetup(res);
     };
 
@@ -33,7 +45,7 @@ function Login() {
         clientId,
         isSignedIn: true,
         // accessType: 'offline',
-        // responseType: 'code',
+        responseType: 'code',
         // prompt: 'consent',
     });
 

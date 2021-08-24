@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.16.3",
+    "google-auth-library": "^7.6.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.11.15",
     "react-bootstrap": "^1.5.0",
