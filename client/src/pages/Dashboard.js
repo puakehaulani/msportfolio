@@ -8,8 +8,9 @@ const Dashboard = () => {
         <>
             <h1>Dashboard</h1>
             <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Default file input example</Form.Label>
-                <Form.Control type="file" />
+                <Form.Label>Choose an image
+                </Form.Label>
+                <Form.Control type="file" style={{ width: "20vw" }} />
             </Form.Group>
             <Button>Upload</Button>
         </>
