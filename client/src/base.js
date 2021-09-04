@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-// import 'firebase/storage';
+import { getStorage } from 'firebase/storage';
 
 const config = {
   "projectId": "michael-scales-portfolio",
@@ -15,6 +15,7 @@ const config = {
 
 export const app = initializeApp(config);
 export const db = getFirestore(app);
+export const storage = getStorage(app);
 
 // async function getImages(db) {
 //   const imagesCol = collection(db, 'image');
