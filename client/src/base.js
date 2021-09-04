@@ -1,7 +1,8 @@
-import firebase from "firebase";
-import 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+// import 'firebase/storage';
 
-export const app = firebase.initializeApp({
+const config = {
   "projectId": "michael-scales-portfolio",
   "appId": "1:35395102019:web:fd492bdc1a728bed82bbf6",
   "databaseURL": "https://michael-scales-portfolio-default-rtdb.firebaseio.com",
@@ -10,5 +11,19 @@ export const app = firebase.initializeApp({
   "apiKey": window.env.FIREBASE_API_KEY,
   "authDomain": "michael-scales-portfolio.firebaseapp.com",
   "messagingSenderId": "35395102019"
-});
+};
 
+export const app = initializeApp(config);
+export const db = getFirestore(app);
+
+// async function getImages(db) {
+//   const imagesCol = collection(db, 'image');
+//   const imageSnapshot = await getDocs(imagesCol);
+//   const imagesList = imageSnapshot.docs.map(doc => doc.data());
+//   return imagesList;
+
+// }
+// getImages(db)
+
+// export const db = getFirestore()
+// export const db = firebase.firestore()
