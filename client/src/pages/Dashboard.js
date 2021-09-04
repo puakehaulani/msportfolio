@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
-import { collection, getDocs } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+// import Alert from 'react-bootstrap/Alert';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import { db } from '../base';
 
@@ -34,14 +35,18 @@ const Dashboard = () => {
     }
 
     const onButtonClick = async () => {
-        const fileRef = ref(storage, file.name)
+        const fileRef = ref(storage, 'proj-thumbnail/' + file.name)
         await uploadBytes(fileRef, file).then((snapshot) => {
-            console.log('Uploaded a blob or file!');
+            alert('Uploaded a blob or file!');
         });
+        await getDownloadURL(fileRef)
+            .then((url) => {
+                console.log(url)
+                addDoc(collection(db, "image"), {
+                    image: url
+                })
+            })
 
-        // db.collection("image").add({
-        //     image: await fileRef.getDownloadURL()
-        // })
     }
 
     return (
