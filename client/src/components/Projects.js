@@ -14,9 +14,9 @@ function Projects() {
             </h1>
 
             <div className="sectionContent">
-                <Tabs className="mb-3 mt-3">
+                <Tabs className="mb-3 mt-3" variant="pills">
                     {project.project.map((item) =>
-                        <Tab eventKey={item.title} title={item.title}>
+                        <Tab eventKey={item.title} title={item.title} tabClassName="Link">
                             <Card key={item.title}>
                                 <Card.Img variant="top" src="http://placekitten.com/500" className="p-3" />
                                 <Card.Body >
