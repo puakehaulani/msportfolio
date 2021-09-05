@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
-// import Alert from 'react-bootstrap/Alert';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, getDocs, doc, onSnapshot } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import { db } from '../base';
@@ -12,7 +11,6 @@ const storage = getStorage();
 
 const Dashboard = () => {
     const [images, setImages] = useState([])
-    // const [newImage, setNewImage] = useState(null)
     const [file, setFile] = useState(null)
 
     async function getImages(db) {
@@ -25,10 +23,6 @@ const Dashboard = () => {
     useEffect(() => {
         getImages(db)
     }, [])
-
-    // useEffect(() => {
-    //     console.log(file)
-    // }, [file])
 
     const onFileChange = (e) => {
         setFile(e.target.files[0])
