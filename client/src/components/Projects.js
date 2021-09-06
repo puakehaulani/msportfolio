@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from "react-bootstrap/Container";
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
+import { collection, getDocs } from 'firebase/firestore';
 
-import project from "../projects.json";
+import { db } from '../base';
 
 function Projects() {
+    const [projects, setProjects] = useState([])
+
+    async function getProjects(db) {
+        const projectsCol = collection(db, 'projects');
+        const projectsSnapshot = await getDocs(projectsCol);
+        const projectsList = projectsSnapshot.docs.map(doc => doc.data());
+        return setProjects(projectsList);
+    }
+
+    useEffect(() => {
+        getProjects(db)
+    }, [])
+
+    const projectDisplay = projects.map((item) =>
+        <Tab eventKey={item.title} title={item.title} tabClassName="Link">
+            <Card key={item.title}>
+                <Card.Img variant="top" src={item.thumbnail} className="p-3" />
+                <Card.Body >
+                    <Card.Title as="h1">{item.title}</Card.Title>
+                    <Card.Text>
+                        {item.summary}
+                    </Card.Text>
+                    <Card.Link href={item.repoURL} variant="primary">Repository</Card.Link>
+                    <Card.Link href={item.deployURL} variant="primary">Deployment</Card.Link>
+                </Card.Body>
+            </Card>
+        </Tab>
+    )
+
     return (
         <Container fluid="true" id="projects" className="jumbotron bg-dark adjustLeft mt-5">
             <h1 className="d-flex justify-content-start neonText leftHeader">
@@ -15,21 +45,7 @@ function Projects() {
 
             <div className="sectionContent">
                 <Tabs className="mb-3 mt-3" variant="tabs">
-                    {project.project.map((item) =>
-                        <Tab eventKey={item.title} title={item.title} tabClassName="Link">
-                            <Card key={item.title}>
-                                <Card.Img variant="top" src="http://placekitten.com/500" className="p-3" />
-                                <Card.Body >
-                                    <Card.Title as="h1">{item.title}</Card.Title>
-                                    <Card.Text>
-                                        {item.about}
-                                    </Card.Text>
-                                    <Card.Link href={item.repo} variant="primary">Repository</Card.Link>
-                                    <Card.Link href={item.deployment} variant="primary">Deployment</Card.Link>
-                                </Card.Body>
-                            </Card>
-                        </Tab>
-                    )}
+                    {projectDisplay}
                 </Tabs>
             </div>
         </Container>
