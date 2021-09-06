@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
+import Card from 'react-bootstrap/Card';
 import { collection, addDoc, getDocs, doc, onSnapshot } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -11,6 +12,7 @@ const storage = getStorage();
 
 const Dashboard = () => {
     const [images, setImages] = useState([])
+    const [projects, setProjects] = useState([])
     const [file, setFile] = useState(null)
 
     async function getImages(db) {
@@ -20,8 +22,16 @@ const Dashboard = () => {
         return setImages(imagesList);
     }
 
+    async function getProjects(db) {
+        const projectsCol = collection(db, 'projects');
+        const projectsSnapshot = await getDocs(projectsCol);
+        const projectsList = projectsSnapshot.docs.map(doc => doc.data());
+        return setProjects(projectsList);
+    }
+
     useEffect(() => {
         getImages(db)
+        getProjects(db)
     }, [])
 
     const onFileChange = (e) => {
@@ -55,6 +65,20 @@ const Dashboard = () => {
 
             {images.map(image => (
                 <Image key={image.image} src={image.image} thumbnail className="mx-2" />
+            ))}
+
+            {projects.map(project => (
+                <Card key={project.title}>
+                    <Card.Img variant="top" src={project.thumbnail} className="p-3" />
+                    <Card.Body >
+                        <Card.Title as="h1">{project.title}</Card.Title>
+                        <Card.Text>
+                            {project.summary}
+                        </Card.Text>
+                        <Card.Link href={project.repoURL} variant="primary">Repository</Card.Link>
+                        <Card.Link href={project.deployURL} variant="primary">Deployment</Card.Link>
+                    </Card.Body>
+                </Card>
             ))}
 
         </>

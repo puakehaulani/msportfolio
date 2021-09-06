@@ -14,7 +14,7 @@ function Projects() {
             </h1>
 
             <div className="sectionContent">
-                <Tabs className="mb-3 mt-3" variant="pills">
+                <Tabs className="mb-3 mt-3" variant="tabs">
                     {project.project.map((item) =>
                         <Tab eventKey={item.title} title={item.title} tabClassName="Link">
                             <Card key={item.title}>
