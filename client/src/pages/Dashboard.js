@@ -59,68 +59,71 @@ const Dashboard = () => {
         <>
             <h1>Dashboard</h1>
             <Card className="mx-4 p-2 col-6" bg="dark">
-                <Form>
-                    <Form.Group className="mb-3" controlId="formSummary">
-                        <Form.Label>Project Title</Form.Label>
-                        <Form.Control
-                            as="input"
-                            value={title}
-                            onChange={e =>
-                                setTitle(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formSummary">
-                        <Form.Label>Project Summary</Form.Label>
-                        <Form.Control
-                            as="textarea"
-                            rows={3}
-                            value={summary}
-                            onChange={e =>
-                                setSummary(e.target.value)} />
-                    </Form.Group>
-
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formRepo">
-                            <Form.Label>Repository URL</Form.Label>
+                <Card.Header as="h2">Add a Project</Card.Header>
+                <Card.Body>
+                    <Form>
+                        <Form.Group className="mb-3" controlId="formSummary">
+                            <Form.Label>Project Title</Form.Label>
                             <Form.Control
-                                value={repoURL}
+                                as="input"
+                                value={title}
                                 onChange={e =>
-                                    setRepoURL(e.target.value)}
+                                    setTitle(e.target.value)}
                             />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formDeploy">
-                            <Form.Label>Deployment URL</Form.Label>
+                        <Form.Group className="mb-3" controlId="formSummary">
+                            <Form.Label>Project Summary</Form.Label>
                             <Form.Control
-                                value={deployURL}
+                                as="textarea"
+                                rows={3}
+                                value={summary}
                                 onChange={e =>
-                                    setDeployURL(e.target.value)} />
+                                    setSummary(e.target.value)} />
                         </Form.Group>
-                    </Row>
+
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formRepo">
+                                <Form.Label>Repository URL</Form.Label>
+                                <Form.Control
+                                    value={repoURL}
+                                    onChange={e =>
+                                        setRepoURL(e.target.value)}
+                                />
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formDeploy">
+                                <Form.Label>Deployment URL</Form.Label>
+                                <Form.Control
+                                    value={deployURL}
+                                    onChange={e =>
+                                        setDeployURL(e.target.value)} />
+                            </Form.Group>
+                        </Row>
 
 
-                    <Form.Group controlId="formFile" className="mb-3">
-                        <Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
-                            Choose an image</Form.Label>
-                        <Form.Control ref={selectFileRef} className="d-none" type="file" onChange={onFileChange} />
-                        {file ?
-                            <> <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</>
-                            :
-                            <> <RiImageAddFill color="slategray" fontSize="2rem" /></>}
+                        <Form.Group controlId="formFile" className="mb-3">
+                            <Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
+                                Choose an image</Form.Label>
+                            <Form.Control ref={selectFileRef} className="d-none" type="file" onChange={onFileChange} />
+                            {file ?
+                                <> <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</>
+                                :
+                                <> <RiImageAddFill color="slategray" fontSize="2rem" /></>}
 
-                    </Form.Group>
+                        </Form.Group>
 
-                    <Row>
-                        <Button as={Col} className="mx-2 col-3" onClick={onButtonClick}>
-                            Upload
-                        </Button>
-                        <Button as={Col} className="mx-2 col-3" variant="secondary" onClick={onReset}>
-                            Reset
-                        </Button>
-                    </Row>
+                        <Row>
+                            <Button as={Col} className="mx-2 col-3" onClick={onButtonClick}>
+                                Upload
+                            </Button>
+                            <Button as={Col} className="mx-2 col-3" variant="secondary" onClick={onReset}>
+                                Reset
+                            </Button>
+                        </Row>
 
-                </Form>
+                    </Form>
+                </Card.Body>
             </Card>
 
         </>
