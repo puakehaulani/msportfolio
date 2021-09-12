@@ -30,8 +30,9 @@ function Projects() {
                     <Card.Text>
                         {item.summary}
                     </Card.Text>
-                    <Card.Link href={item.repoURL} variant="primary">Repository</Card.Link>
-                    <Card.Link href={item.deployURL} variant="primary">Deployment</Card.Link>
+                    <Card.Link href={item.repoURL} variant="primary" target="_blank">Repository</Card.Link>
+                    {item.deployURL ? <Card.Link href={item.deployURL} variant="primary" target="_blank">Deployment</Card.Link> : <></>
+                    }
                 </Card.Body>
             </Card>
         </Tab>
