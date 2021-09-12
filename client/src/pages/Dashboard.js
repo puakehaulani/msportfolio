@@ -58,36 +58,38 @@ const Dashboard = () => {
     return (
         <>
             <h1>Dashboard</h1>
-            <Form>
-                <Form.Group className="mb-3 col-6" controlId="formSummary">
-                    <Form.Label>Project Title</Form.Label>
-                    <Form.Control as="input" />
-                </Form.Group>
-
-                <Form.Group className="mb-3 col-6" controlId="formSummary">
-                    <Form.Label>Project Summary</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
-                </Form.Group>
-
-                <Row className="mb-3 col-6">
-                    <Form.Group as={Col} controlId="formRepo">
-                        <Form.Label>Repository URL</Form.Label>
-                        <Form.Control />
+            <Card className="mx-4 p-2 col-6" bg="success">
+                <Form>
+                    <Form.Group className="mb-3" controlId="formSummary">
+                        <Form.Label>Project Title</Form.Label>
+                        <Form.Control as="input" />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formDeploy">
-                        <Form.Label>Deployment URL</Form.Label>
-                        <Form.Control />
+                    <Form.Group className="mb-3" controlId="formSummary">
+                        <Form.Label>Project Summary</Form.Label>
+                        <Form.Control as="textarea" rows={3} />
                     </Form.Group>
-                </Row>
 
-                <Form.Group controlId="formFile" className="mb-3 col-6">
-                    <Form.Label>Choose an image</Form.Label>
-                    <Form.Control type="file" onChange={onFileChange} />
-                </Form.Group>
-                <Button className="mt-2" onClick={onButtonClick}>Upload</Button>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} controlId="formRepo">
+                            <Form.Label>Repository URL</Form.Label>
+                            <Form.Control />
+                        </Form.Group>
 
-            </Form>
+                        <Form.Group as={Col} controlId="formDeploy">
+                            <Form.Label>Deployment URL</Form.Label>
+                            <Form.Control />
+                        </Form.Group>
+                    </Row>
+
+                    <Form.Group controlId="formFile" className="mb-3">
+                        <Form.Label>Choose an image</Form.Label>
+                        <Form.Control type="file" onChange={onFileChange} />
+                    </Form.Group>
+                    <Button className="mt-2" onClick={onButtonClick}>Upload</Button>
+
+                </Form>
+            </Card>
 
             {/* {images.map(image => (
                 <Image key={image.image} src={image.image} thumbnail className="mx-2" />
