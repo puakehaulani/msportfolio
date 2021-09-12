@@ -26,6 +26,7 @@ a {
   padding-inline: 10px;
   text-shadow: 1px 1px black;
   color:white !important;
+  z-index:1000 !important
 
 }
 
@@ -42,8 +43,6 @@ ul{
 padding-top: 10px;
 padding-bottom: 10px;
 }
-
-
 
 .navbar-nav{
   writing-mode: vertical-rl;
