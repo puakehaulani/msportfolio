@@ -63,7 +63,7 @@ const Dashboard = () => {
                 <Card.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="formSummary">
-                            <Form.Label>Project Title</Form.Label>
+                            <Form.Label>* Project Title</Form.Label>
                             <Form.Control
                                 as="input"
                                 value={title}
@@ -73,7 +73,7 @@ const Dashboard = () => {
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formSummary">
-                            <Form.Label>Project Summary</Form.Label>
+                            <Form.Label>* Project Summary</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={3}
@@ -84,7 +84,7 @@ const Dashboard = () => {
 
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formRepo">
-                                <Form.Label>Repository URL</Form.Label>
+                                <Form.Label>* Repository URL</Form.Label>
                                 <Form.Control
                                     value={repoURL}
                                     onChange={e =>
@@ -103,17 +103,19 @@ const Dashboard = () => {
 
 
                         <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
-                                Choose an image</Form.Label>
+
                             <Form.Control ref={selectFileRef} className="d-none" type="file" onChange={onFileChange} />
-                            {file ?
-                                <> <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</>
-                                :
-                                <> <RiImageAddFill color="slategray" fontSize="2rem" /></>}
+                            {file ? <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-success">
+                                Choose an image</Form.Label>
+                                <span className="align-middle" > <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</span> </>
+                                : <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
+                                    Choose an image</Form.Label>
+                                    <span className="align-middle" > <RiImageAddFill color="slategray" fontSize="2rem" /></span> </>
+                            }
 
                         </Form.Group>
 
-                        <Row>
+                        <Row className="mb-3">
                             <Button as={Col} className="mx-2 col-3" onClick={onButtonClick}>
                                 Upload
                             </Button>
@@ -121,7 +123,7 @@ const Dashboard = () => {
                                 Reset
                             </Button>
                         </Row>
-
+                        <span style={{ color: "crimson", fontStyle: "italic" }}>* Required fields</span>
                     </Form>
                 </Card.Body>
             </Card>
