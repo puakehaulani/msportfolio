@@ -15,26 +15,31 @@ const storage = getStorage();
 const Dashboard = () => {
     const [images, setImages] = useState([])
     const [projects, setProjects] = useState([])
+    const [title, setTitle] = useState("")
+    const [summary, setSummary] = useState("")
+    const [repoURL, setRepoURL] = useState("")
+    const [deployURL, setDeployURL] = useState("")
     const [file, setFile] = useState(null)
 
-    async function getImages(db) {
-        const imagesCol = collection(db, 'image');
-        const imageSnapshot = await getDocs(imagesCol);
-        const imagesList = imageSnapshot.docs.map(doc => doc.data());
-        return setImages(imagesList);
-    }
+    // async function getImages(db) {
+    //     const imagesCol = collection(db, 'image');
+    //     const imageSnapshot = await getDocs(imagesCol);
+    //     const imagesList = imageSnapshot.docs.map(doc => doc.data());
+    //     return setImages(imagesList);
+    // }
 
-    async function getProjects(db) {
-        const projectsCol = collection(db, 'projects');
-        const projectsSnapshot = await getDocs(projectsCol);
-        const projectsList = projectsSnapshot.docs.map(doc => doc.data());
-        return setProjects(projectsList);
-    }
+    // async function getProjects(db) {
+    //     const projectsCol = collection(db, 'projects');
+    //     const projectsSnapshot = await getDocs(projectsCol);
+    //     const projectsList = projectsSnapshot.docs.map(doc => doc.data());
+    //     return setProjects(projectsList);
+    // }
 
     useEffect(() => {
-        getImages(db)
-        getProjects(db)
-    }, [])
+        console.log(title, summary, repoURL, deployURL)
+    }, [title, summary, repoURL, deployURL])
+
+
 
     const onFileChange = (e) => {
         setFile(e.target.files[0])
@@ -62,23 +67,40 @@ const Dashboard = () => {
                 <Form>
                     <Form.Group className="mb-3" controlId="formSummary">
                         <Form.Label>Project Title</Form.Label>
-                        <Form.Control as="input" />
+                        <Form.Control
+                            as="input"
+                            value={title}
+                            onChange={e =>
+                                setTitle(e.target.value)}
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formSummary">
                         <Form.Label>Project Summary</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control
+                            as="textarea"
+                            rows={3}
+                            value={summary}
+                            onChange={e =>
+                                setSummary(e.target.value)} />
                     </Form.Group>
 
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formRepo">
                             <Form.Label>Repository URL</Form.Label>
-                            <Form.Control />
+                            <Form.Control
+                                value={repoURL}
+                                onChange={e =>
+                                    setRepoURL(e.target.value)}
+                            />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formDeploy">
                             <Form.Label>Deployment URL</Form.Label>
-                            <Form.Control />
+                            <Form.Control
+                                value={deployURL}
+                                onChange={e =>
+                                    setDeployURL(e.target.value)} />
                         </Form.Group>
                     </Row>
 
