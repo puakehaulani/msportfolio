@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { collection, addDoc, getDocs, doc, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import { db } from '../base';
@@ -13,33 +12,11 @@ import { db } from '../base';
 const storage = getStorage();
 
 const Dashboard = () => {
-    const [images, setImages] = useState([])
-    const [projects, setProjects] = useState([])
     const [title, setTitle] = useState("")
     const [summary, setSummary] = useState("")
     const [repoURL, setRepoURL] = useState("")
     const [deployURL, setDeployURL] = useState("")
     const [file, setFile] = useState(null)
-
-    // async function getImages(db) {
-    //     const imagesCol = collection(db, 'image');
-    //     const imageSnapshot = await getDocs(imagesCol);
-    //     const imagesList = imageSnapshot.docs.map(doc => doc.data());
-    //     return setImages(imagesList);
-    // }
-
-    // async function getProjects(db) {
-    //     const projectsCol = collection(db, 'projects');
-    //     const projectsSnapshot = await getDocs(projectsCol);
-    //     const projectsList = projectsSnapshot.docs.map(doc => doc.data());
-    //     return setProjects(projectsList);
-    // }
-
-    useEffect(() => {
-        console.log(title, summary, repoURL, deployURL)
-    }, [title, summary, repoURL, deployURL])
-
-
 
     const onFileChange = (e) => {
         setFile(e.target.files[0])
@@ -48,7 +25,7 @@ const Dashboard = () => {
     const onButtonClick = async () => {
         const fileRef = ref(storage, 'proj-thumbnail/' + file.name)
         await uploadBytes(fileRef, file).then((snapshot) => {
-            alert('Uploaded a blob or file!');
+            alert('Project added to Google Cloud Firestore 🔥');
         });
         await getDownloadURL(fileRef)
             .then((url) => {
