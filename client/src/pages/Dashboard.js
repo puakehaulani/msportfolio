@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { RiImageAddFill, RiImageLine } from 'react-icons/ri';
 
 import { db } from '../base';
 
@@ -17,9 +18,22 @@ const Dashboard = () => {
     const [repoURL, setRepoURL] = useState("")
     const [deployURL, setDeployURL] = useState("")
     const [file, setFile] = useState(null)
+    const selectFileRef = useRef();
+
+    const handleSelectFile = () => {
+        selectFileRef.current?.click();
+    };
 
     const onFileChange = (e) => {
         setFile(e.target.files[0])
+    }
+
+    const onReset = () => {
+        setTitle("")
+        setSummary("")
+        setRepoURL("")
+        setDeployURL("")
+        setFile(null)
     }
 
     const onButtonClick = async () => {
@@ -29,7 +43,6 @@ const Dashboard = () => {
         });
         await getDownloadURL(fileRef)
             .then((url) => {
-                console.log(url)
                 addDoc(collection(db, "projects"), {
                     thumbnail: url,
                     title: title,
@@ -37,6 +50,7 @@ const Dashboard = () => {
                     repoURL: repoURL,
                     deployURL: deployURL
                 })
+                onReset()
             })
 
     }
@@ -44,7 +58,7 @@ const Dashboard = () => {
     return (
         <>
             <h1>Dashboard</h1>
-            <Card className="mx-4 p-2 col-6" bg="success">
+            <Card className="mx-4 p-2 col-6" bg="dark">
                 <Form>
                     <Form.Group className="mb-3" controlId="formSummary">
                         <Form.Label>Project Title</Form.Label>
@@ -85,32 +99,29 @@ const Dashboard = () => {
                         </Form.Group>
                     </Row>
 
+
                     <Form.Group controlId="formFile" className="mb-3">
-                        <Form.Label>Choose an image</Form.Label>
-                        <Form.Control type="file" onChange={onFileChange} />
+                        <Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
+                            Choose an image</Form.Label>
+                        <Form.Control ref={selectFileRef} className="d-none" type="file" onChange={onFileChange} />
+                        {file ?
+                            <> <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</>
+                            :
+                            <> <RiImageAddFill color="slategray" fontSize="2rem" /></>}
+
                     </Form.Group>
-                    <Button className="mt-2" onClick={onButtonClick}>Upload</Button>
+
+                    <Row>
+                        <Button as={Col} className="mx-2 col-3" onClick={onButtonClick}>
+                            Upload
+                        </Button>
+                        <Button as={Col} className="mx-2 col-3" variant="secondary" onClick={onReset}>
+                            Reset
+                        </Button>
+                    </Row>
 
                 </Form>
             </Card>
-
-            {/* {images.map(image => (
-                <Image key={image.image} src={image.image} thumbnail className="mx-2" />
-            ))}
-
-            {projects.map(project => (
-                <Card key={project.title}>
-                    <Card.Img variant="top" src={project.thumbnail} className="p-3" />
-                    <Card.Body >
-                        <Card.Title as="h1">{project.title}</Card.Title>
-                        <Card.Text>
-                            {project.summary}
-                        </Card.Text>
-                        <Card.Link href={project.repoURL} variant="primary">Repository</Card.Link>
-                        <Card.Link href={project.deployURL} variant="primary">Deployment</Card.Link>
-                    </Card.Body>
-                </Card>
-            ))} */}
 
         </>
     )
