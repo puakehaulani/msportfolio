@@ -53,8 +53,12 @@ const Dashboard = () => {
         await getDownloadURL(fileRef)
             .then((url) => {
                 console.log(url)
-                addDoc(collection(db, "image"), {
-                    image: url
+                addDoc(collection(db, "projects"), {
+                    thumbnail: url,
+                    title: title,
+                    summary: summary,
+                    repoURL: repoURL,
+                    deployURL: deployURL
                 })
             })
 
