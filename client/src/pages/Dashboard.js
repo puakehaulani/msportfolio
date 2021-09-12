@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { collection, addDoc, getDocs, doc, onSnapshot } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -56,14 +58,38 @@ const Dashboard = () => {
     return (
         <>
             <h1>Dashboard</h1>
-            <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Choose an image
-                </Form.Label>
-                <Form.Control type="file" style={{ width: 300 }} onChange={onFileChange} />
-                <Button className="mt-2" onClick={onButtonClick}>Upload</Button>
-            </Form.Group>
+            <Form>
+                <Form.Group className="mb-3 col-6" controlId="formSummary">
+                    <Form.Label>Project Title</Form.Label>
+                    <Form.Control as="input" />
+                </Form.Group>
 
-            {images.map(image => (
+                <Form.Group className="mb-3 col-6" controlId="formSummary">
+                    <Form.Label>Project Summary</Form.Label>
+                    <Form.Control as="textarea" rows={3} />
+                </Form.Group>
+
+                <Row className="mb-3 col-6">
+                    <Form.Group as={Col} controlId="formRepo">
+                        <Form.Label>Repository URL</Form.Label>
+                        <Form.Control />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formDeploy">
+                        <Form.Label>Deployment URL</Form.Label>
+                        <Form.Control />
+                    </Form.Group>
+                </Row>
+
+                <Form.Group controlId="formFile" className="mb-3 col-6">
+                    <Form.Label>Choose an image</Form.Label>
+                    <Form.Control type="file" onChange={onFileChange} />
+                </Form.Group>
+                <Button className="mt-2" onClick={onButtonClick}>Upload</Button>
+
+            </Form>
+
+            {/* {images.map(image => (
                 <Image key={image.image} src={image.image} thumbnail className="mx-2" />
             ))}
 
@@ -79,7 +105,7 @@ const Dashboard = () => {
                         <Card.Link href={project.deployURL} variant="primary">Deployment</Card.Link>
                     </Card.Body>
                 </Card>
-            ))}
+            ))} */}
 
         </>
     )
