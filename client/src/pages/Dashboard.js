@@ -49,7 +49,7 @@ const Dashboard = () => {
             setValidated(true);
             const fileRef = ref(storage, 'proj-thumbnail/' + file.name)
             await uploadBytes(fileRef, file).then((snapshot) => {
-                console.log('Image added to Google Cloud Storage ☁️')
+                console.log('Image added to Google Cloud Storage')
             })
             await getDownloadURL(fileRef)
                 .then((url) => {
@@ -84,7 +84,7 @@ const Dashboard = () => {
                                     setTitle(e.target.value)}
                             />
                             <Form.Control.Feedback type="invalid">
-                                Please enter a title.
+                                Please enter a title
                             </Form.Control.Feedback>
                         </Form.Group>
 
@@ -98,7 +98,7 @@ const Dashboard = () => {
                                 onChange={e =>
                                     setSummary(e.target.value)} />
                             <Form.Control.Feedback type="invalid">
-                                Please enter a summary.
+                                Please enter a summary
                             </Form.Control.Feedback>
                         </Form.Group>
 
@@ -107,21 +107,26 @@ const Dashboard = () => {
                                 <Form.Label>* Repository URL</Form.Label>
                                 <Form.Control
                                     required
+                                    type="url"
                                     value={repoURL}
                                     onChange={e =>
                                         setRepoURL(e.target.value)}
                                 />
                                 <Form.Control.Feedback type="invalid">
-                                    Please include a link to the repo.
+                                    Please add a http:// prefixed link to your repo
                                 </Form.Control.Feedback>
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formDeploy">
                                 <Form.Label>Deployment URL</Form.Label>
                                 <Form.Control
+                                    type="url"
                                     value={deployURL}
                                     onChange={e =>
                                         setDeployURL(e.target.value)} />
+                                <Form.Control.Feedback type="invalid">
+                                    Prefix your link with http://
+                                </Form.Control.Feedback>
                             </Form.Group>
                         </Row>
 
@@ -137,7 +142,7 @@ const Dashboard = () => {
                                     <span className="align-middle" > <RiImageAddFill color="slategray" fontSize="2rem" /></span> </>
                             }
                             <Form.Control.Feedback type="invalid">
-                                Please choose an image.
+                                Please choose an image
                             </Form.Control.Feedback>
                         </Form.Group>
 
