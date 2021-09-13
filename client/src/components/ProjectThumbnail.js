@@ -37,7 +37,6 @@ function Projects() {
             );
     }
 
-
     const projThumbs = projects.map((item) =>
         <Card key={item.title} className="col-3 mx-2 py-1" bg="light" as={Col}>
             <Card.Img src={item.thumbnail} style={{ height: "90%", width: "100%", objectFit: "cover", borderRadius: 5 }} />
