@@ -68,7 +68,7 @@ const ProjectForm = () => {
 
 
     return (
-        <Card className="mx-4 p-2 col-6" bg="dark">
+        <Card className="m-4 p-2 col-6" bg="dark">
             <Card.Header as="h2">Add a Project</Card.Header>
             <Card.Body>
                 <Form noValidate validated={validated} id="projectForm">
