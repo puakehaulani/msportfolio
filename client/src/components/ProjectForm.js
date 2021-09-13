@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { RiImageAddFill, RiImageLine } from 'react-icons/ri';
 
@@ -53,7 +53,8 @@ const ProjectForm = () => {
             })
             await getDownloadURL(fileRef)
                 .then((url) => {
-                    addDoc(collection(db, "projects"), {
+                    // addDoc(collection(db, "projects"), {
+                    setDoc(doc(db, "projects", title), {
                         thumbnail: url,
                         title: title,
                         summary: summary,
