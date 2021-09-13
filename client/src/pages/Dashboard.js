@@ -75,7 +75,7 @@ const Dashboard = () => {
                 <Card.Body>
                     <Form noValidate validated={validated} id="projectForm">
                         <Form.Group className="mb-3" controlId="formSummary">
-                            <Form.Label>* Project Title</Form.Label>
+                            <Form.Label>* Unique Project Title</Form.Label>
                             <Form.Control
                                 required
                                 as="input"
