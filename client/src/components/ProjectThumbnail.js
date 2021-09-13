@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -15,15 +16,22 @@ function Projects() {
         const projectsCol = collection(db, 'projects')
         const projectsSnapshot = await getDocs(projectsCol);
         const projectsList = projectsSnapshot.docs.map(doc => doc.data());
-        // const q = query(projectsCol);
-        // const querySnapshot = await getDocs(q);
-        // const projectsList = querySnapshot.forEach(doc => doc.data())
         return setProjects(projectsList);
     }
 
-
     useEffect(() => {
         getProjects(db)
+    }, [])
+
+    useEffect(() => {
+        const unsubscribe = onSnapshot(collection(db, 'projects'),
+            (querySnapshot) => {
+                const newProjectsList = querySnapshot.docs.map(doc => doc.data())
+                return setProjects(newProjectsList)
+            })
+        return () => {
+            unsubscribe()
+        }
     }, [])
 
     const onEditClick = (docID) => {
