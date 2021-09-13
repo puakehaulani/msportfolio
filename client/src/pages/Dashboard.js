@@ -133,7 +133,13 @@ const Dashboard = () => {
 
                         <Form.Group controlId="formFile" className="mb-3">
 
-                            <Form.Control required ref={selectFileRef} className="d-none" type="file" onChange={onFileChange} />
+                            <Form.Control
+                                required
+                                ref={selectFileRef}
+                                className="d-none"
+                                type="file"
+                                accept="image/*"
+                                onChange={onFileChange} />
                             {file ? <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-success">
                                 Choose an image</Form.Label>
                                 <span className="align-middle" > <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</span> </>
