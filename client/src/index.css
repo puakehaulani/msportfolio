@@ -44,7 +44,9 @@ ul{
   list-style-type: none;
 }
 
-
+.editModal{
+background-color: slategray !important;
+}
 /* .container {
 padding-top: 10px;
 padding-bottom: 10px;

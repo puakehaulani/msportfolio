@@ -69,100 +69,96 @@ const ProjectForm = () => {
 
 
     return (
-        <Card className="m-4 p-2 col-6" bg="dark">
-            <Card.Header as="h2">Add a Project</Card.Header>
-            <Card.Body>
-                <Form noValidate validated={validated} id="projectForm">
-                    <Form.Group className="mb-3" controlId="formSummary">
-                        <Form.Label>* Unique Project Title</Form.Label>
-                        <Form.Control
-                            required
-                            as="input"
-                            value={title}
-                            onChange={e =>
-                                setTitle(e.target.value)}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            Please enter a title
-                        </Form.Control.Feedback>
-                    </Form.Group>
+        <Form noValidate validated={validated} id="projectForm">
+            <Form.Group className="mb-3" controlId="formSummary">
+                <Form.Label>* Unique Project Title</Form.Label>
+                <Form.Control
+                    required
+                    as="input"
+                    value={title}
+                    onChange={e =>
+                        setTitle(e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">
+                    Please enter a title
+                </Form.Control.Feedback>
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formSummary">
-                        <Form.Label>* Project Summary</Form.Label>
-                        <Form.Control
-                            required
-                            as="textarea"
-                            rows={3}
-                            value={summary}
-                            onChange={e =>
-                                setSummary(e.target.value)} />
-                        <Form.Control.Feedback type="invalid">
-                            Please enter a summary
-                        </Form.Control.Feedback>
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="formSummary">
+                <Form.Label>* Project Summary</Form.Label>
+                <Form.Control
+                    required
+                    as="textarea"
+                    rows={3}
+                    value={summary}
+                    onChange={e =>
+                        setSummary(e.target.value)} />
+                <Form.Control.Feedback type="invalid">
+                    Please enter a summary
+                </Form.Control.Feedback>
+            </Form.Group>
 
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formRepo">
-                            <Form.Label>* Repository URL</Form.Label>
-                            <Form.Control
-                                required
-                                type="url"
-                                value={repoURL}
-                                onChange={e =>
-                                    setRepoURL(e.target.value)}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Please add a http:// prefixed link to your repo
-                            </Form.Control.Feedback>
-                        </Form.Group>
+            <Row className="mb-3">
+                <Form.Group as={Col} controlId="formRepo">
+                    <Form.Label>* Repository URL</Form.Label>
+                    <Form.Control
+                        required
+                        type="url"
+                        value={repoURL}
+                        onChange={e =>
+                            setRepoURL(e.target.value)}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Please add a http:// prefixed link to your repo
+                    </Form.Control.Feedback>
+                </Form.Group>
 
-                        <Form.Group as={Col} controlId="formDeploy">
-                            <Form.Label>Deployment URL</Form.Label>
-                            <Form.Control
-                                type="url"
-                                value={deployURL}
-                                onChange={e =>
-                                    setDeployURL(e.target.value)} />
-                            <Form.Control.Feedback type="invalid">
-                                Prefix your link with http://
-                            </Form.Control.Feedback>
-                        </Form.Group>
-                    </Row>
+                <Form.Group as={Col} controlId="formDeploy">
+                    <Form.Label>Deployment URL</Form.Label>
+                    <Form.Control
+                        type="url"
+                        value={deployURL}
+                        onChange={e =>
+                            setDeployURL(e.target.value)} />
+                    <Form.Control.Feedback type="invalid">
+                        Prefix your link with http://
+                    </Form.Control.Feedback>
+                </Form.Group>
+            </Row>
 
 
-                    <Form.Group controlId="formFile" className="mb-3">
+            <Form.Group controlId="formFile" className="mb-3">
 
-                        <Form.Control
-                            required
-                            ref={selectFileRef}
-                            className="d-none"
-                            type="file"
-                            accept="image/*"
-                            onChange={onFileChange} />
-                        {file ? <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-success">
-                            Choose an image</Form.Label>
-                            <span className="align-middle" > <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</span> </>
-                            : <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
-                                * Choose an image</Form.Label>
-                                <span className="align-middle" > <RiImageAddFill color="slategray" fontSize="2rem" /></span> </>
-                        }
-                        <Form.Control.Feedback type="invalid">
-                            Please choose an image
-                        </Form.Control.Feedback>
-                    </Form.Group>
+                <Form.Control
+                    required
+                    ref={selectFileRef}
+                    className="d-none"
+                    type="file"
+                    accept="image/*"
+                    onChange={onFileChange} />
+                {file ? <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-success">
+                    Choose an image</Form.Label>
+                    <span className="align-middle" > <RiImageLine color="seagreen" fontSize="2rem" />{file.name}</span> </>
+                    : <><Form.Label as={Button} onClick={handleSelectFile} variant="outline-light">
+                        * Choose an image</Form.Label>
+                        <span className="align-middle" > <RiImageAddFill color="slategray" fontSize="2rem" /></span> </>
+                }
+                <Form.Control.Feedback type="invalid">
+                    Please choose an image
+                </Form.Control.Feedback>
+            </Form.Group>
 
-                    <Row className="mb-3">
-                        <Button as={Col} className="mx-2 col-3" onClick={onButtonClick}>
-                            Upload
-                        </Button>
-                        <Button as={Col} className="mx-2 col-3" variant="secondary" onClick={onReset}>
-                            Reset
-                        </Button>
-                    </Row>
-                    <span style={{ color: "crimson", fontStyle: "italic" }}>* Required fields</span>
-                </Form>
-            </Card.Body>
-        </Card>
+            <Row className="mb-3">
+                <Button as={Col} className="mx-2 col-3" onClick={onButtonClick}>
+                    Upload
+                </Button>
+                <Button as={Col} className="mx-2 col-3" variant="secondary" onClick={onReset}>
+                    Reset
+                </Button>
+            </Row>
+            <span style={{ color: "crimson", fontStyle: "italic" }}>* Required fields</span>
+        </Form>
+
     )
 }
 
