@@ -26,8 +26,6 @@ a {
   padding-inline: 10px;
   text-shadow: 1px 1px black;
   color:white !important;
-  z-index:1000 !important
-
 }
 
 .Element{
@@ -35,14 +33,22 @@ padding-right: 3rem;
   padding-left: 7rem
 }
 
+.tabz{
+  letter-spacing: 2px !important
+}
+.tabz.active {
+  background-color: rgba(122, 178, 238, 0.596)!important;
+}
+
 ul{
   list-style-type: none;
 }
 
-.container {
+
+/* .container {
 padding-top: 10px;
 padding-bottom: 10px;
-}
+} */
 
 .navbar-nav{
   writing-mode: vertical-rl;

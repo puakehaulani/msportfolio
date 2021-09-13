@@ -23,7 +23,7 @@ function Projects() {
 
     const projectDisplay = projects.map((item) =>
 
-        <Tab key={item.title} eventKey={item.title} title={item.title} tabClassName="Link">
+        <Tab key={item.title} eventKey={item.title} title={item.title} tabClassName="Link tabz">
             <Card>
                 <Card.Img variant="top" src={item.thumbnail} className="p-3" />
                 <Card.Body >
