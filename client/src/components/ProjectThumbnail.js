@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -24,19 +21,20 @@ function Projects() {
     }, [])
 
     const projThumbs = projects.map((item) =>
-        <Card key={item.title} style={{ width: '18rem', height: '18rem' }} className="text-center col-3 mx-2 py-1" bg="warning" as={Col}>
-            <Card.Img src={item.thumbnail} style={{ height: "90%", width: "100%", objectFit: "cover" }} />
+        <Card key={item.title} className="text-center col-3 mx-2 py-1" bg="warning" as={Col}>
+            <Card.Img src={item.thumbnail} style={{ height: "90%", width: "100%", objectFit: "cover", borderRadius: 5 }} />
             <Card.Title as="h5">{item.title}</Card.Title>
         </Card>
     )
 
 
     return (
-        <Container >
+        <Card className="m-4 px-4 py-2 col-6" bg="dark">
+            <h3>Existing projects</h3>
             <Row>
                 {projThumbs}
             </Row>
-        </Container >
+        </Card >
 
 
     )
