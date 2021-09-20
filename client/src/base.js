@@ -16,15 +16,3 @@ const config = {
 export const app = initializeApp(config);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-
-// async function getImages(db) {
-//   const imagesCol = collection(db, 'image');
-//   const imageSnapshot = await getDocs(imagesCol);
-//   const imagesList = imageSnapshot.docs.map(doc => doc.data());
-//   return imagesList;
-
-// }
-// getImages(db)
-
-// export const db = getFirestore()
-// export const db = firebase.firestore()

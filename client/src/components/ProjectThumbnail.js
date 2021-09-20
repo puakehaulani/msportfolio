@@ -120,7 +120,7 @@ function Projects() {
             <Card.Header as="h5" style={{
                 backgroundColor: "transparent", borderColor: "transparent", color: "black", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "baseline"
             }}>
-                <Button style={{ backgroundColor: "transparent", borderWidth: 0 }}
+                <Button disabled={true} style={{ backgroundColor: "transparent", borderWidth: 0 }}
                     onClick={() => handleShow(item)}
                 >
                     <FaEdit color="rosyBrown" size="1.5rem" />
