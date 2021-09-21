@@ -1,12 +1,14 @@
 import React, { useState, useEffect, createContext } from "react";
 import { getAuth } from "firebase/auth"
+import { Redirect } from 'react-router';
+
 
 export const UserContext = createContext({ user: null })
+const auth = getAuth()
 
 const UserProvider = (props) => {
     const [user, setuser] = useState(null)
     useEffect(() => {
-        const auth = getAuth()
         auth.onAuthStateChanged(async (user) => {
             if (user) {
                 const { displayName, email } = user;
@@ -15,8 +17,9 @@ const UserProvider = (props) => {
                     email
                 })
                 console.log("userprovider", user)
+            } else {
+                console.log("no user")
             }
-
         })
 
     }, [])
@@ -25,3 +28,12 @@ const UserProvider = (props) => {
     )
 }
 export default UserProvider
+
+export const logOut = () => {
+    auth.signOut().then(() => {
+        console.log('logged out')
+    }).catch((error) => {
+        console.log(error.message)
+    })
+}
+
