@@ -52,17 +52,6 @@ function Projects() {
         }
     }, [])
 
-    const onEditClick = (docID) => {
-        // await setDoc(doc(db, "projects", docID), {
-        //     thumbnail: url,
-        //                 title: title,
-        //                 summary: summary,
-        //                 repoURL: repoURL,
-        //                 deployURL: deployURL
-        // })
-        alert("heyyyyy")
-    }
-
     async function onDeleteClick(docID) {
         await deleteDoc(doc(db, "projects", docID))
 
