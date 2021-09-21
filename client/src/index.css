@@ -24,7 +24,8 @@ a {
   cursor: pointer;
   text-decoration: none;
   padding-inline: 10px;
-
+  text-shadow: 1px 1px black;
+  color:white !important;
 }
 
 .Element{
@@ -32,16 +33,24 @@ padding-right: 3rem;
   padding-left: 7rem
 }
 
+.tabz{
+  letter-spacing: 2px !important
+}
+.tabz.active {
+  background-color: rgba(122, 178, 238, 0.596)!important;
+}
+
 ul{
   list-style-type: none;
 }
 
-.container {
+.editModal{
+background-color: slategray !important;
+}
+/* .container {
 padding-top: 10px;
 padding-bottom: 10px;
-}
-
-
+} */
 
 .navbar-nav{
   writing-mode: vertical-rl;
@@ -110,6 +119,27 @@ text-orientation: mixed;
 .glow { text-shadow: 0px 0px 5px rgba(30, 132, 242); }
 
 .card {
+  border-width: 0 !important;
+  background-color: transparent !important;
+
+}
+
+.card-link {
+
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-shadow: 
+  0 0 6px rgba(202,228,225,0.92),
+  0 0 30px rgba(202,228,225,0.34),
+  0 0 12px rgba(30,132,242,0.52),
+  0 0 21px rgba(30,132,242,0.92),
+  0 0 34px rgba(30,132,242,0.78),
+  0 0 54px rgba(30,132,242,0.92);
+  text-decoration: underline;
+}
+/* .card {
   border: 0;
   background-color: rgba(0, 0, 0, 0.5);
   filter: grayscale(100%);
@@ -136,7 +166,7 @@ text-orientation: mixed;
 .card-title,
 .card-footer {
   text-shadow: 1px 1px black;
-}
+} */
 
 table {
   color: rgba(255, 255, 255, 0.575) !important;
@@ -174,4 +204,8 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  }
+
+  .form-label {
+    text-shadow: black !important
   }

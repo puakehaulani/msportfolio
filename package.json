@@ -25,6 +25,7 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.11.15",
     "react-bootstrap": "^1.5.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-sidebar": "^3.0.2"
   }
 }
