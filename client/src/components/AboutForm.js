@@ -17,6 +17,7 @@ const storage = getStorage();
 const AboutForm = () => {
     const [aboutBody, setAboutBody] = useState("")
     const [show, setShow] = useState(false);
+    const [counter, setCounter] = useState(6);
 
 
     async function getAbout(db) {
@@ -42,6 +43,7 @@ const AboutForm = () => {
     }
 
     const handlePullData = async (event) => {
+        alert("okay i guess youre sureeeee")
         // make API call to pull data
         // assign to aboutBody state
         // send to DB:
@@ -51,6 +53,9 @@ const AboutForm = () => {
         //             alert('About updated on Google Cloud Firestore 🔥')
         // make sure new data rerenders
         // decrease counter
+        setCounter(counter - 1)
+        // close modal
+        handleClose()
     }
 
 
@@ -65,7 +70,7 @@ const AboutForm = () => {
                 </Card.Body>
                 <Card.Footer>
                     <Button variant="primary" onClick={onButtonClick}> Pull New Content</Button>
-                    <Row><div><Badge bg="warning" text="dark">Warning:</Badge> Limited number of data pulls available</div></Row>
+                    <Row><div><Badge bg="warning" text="dark">Warning:</Badge> {counter} data pulls available</div></Row>
                 </Card.Footer>
             </Card>
 
