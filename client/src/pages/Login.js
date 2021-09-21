@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { FcGoogle } from 'react-icons/fc';
 import Button from 'react-bootstrap/Button';
 import Background from '../assets/images/bkg.jpg';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Redirect } from 'react-router-dom';
+
+import { UserContext } from '../providers/UserProvider';
 
 // refresh token
 // import { refreshTokenSetup } from '../utils/refreshToken';
@@ -12,33 +15,26 @@ const clientId =
     window.env.GOOGLE_CLIENT_ID
 
 function Login() {
+    const user = useContext(UserContext);
 
     const provider = new GoogleAuthProvider();
-
     const auth = getAuth();
 
     const handleSignIn = () => {
         signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                console.log(credential)
-                console.log(token)
-                console.log(user)
-                // ...
+            .then((res) => {
+                // // This gives you a Google Access Token. You can use it to access the Google API.
+                // const credential = GoogleAuthProvider.credentialFromResult(result);
+                // const token = credential.accessToken;
+                // // The signed-in user info.
+                // const user = result.user;
+                // // console.log(user)
+                // // ...
+                console.log("login", res.user)
             }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.email;
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
+                console.log(error.message)
             });
+
     }
 
 
@@ -79,7 +75,11 @@ function Login() {
     //     responseType: 'code',
     //     // prompt: 'consent',
     // });
-
+    if (user) {
+        return (
+            <Redirect to="/dashboard" />
+        )
+    }
     return (
         <div style={{
             height: "100vh",
@@ -100,6 +100,7 @@ function Login() {
 
 
     );
+
 }
 
 export default Login;
