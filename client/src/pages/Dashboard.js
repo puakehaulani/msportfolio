@@ -7,6 +7,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { Redirect } from 'react-router';
 
 import { UserContext } from '../providers/UserProvider';
+import AboutForm from '../components/AboutForm';
 import ProjectForm from '../components/ProjectForm';
 import ProjectThumbnail from '../components/ProjectThumbnail';
 
@@ -40,6 +41,14 @@ const Dashboard = () => {
             </Button>
 
             <h1>Dashboard</h1>
+
+            <Card className="m-4 p-2 col-6" bg="dark">
+                <Card.Header as="h2">Update About Me Section</Card.Header>
+                <Card.Body>
+                    <AboutForm />
+                </Card.Body>
+            </Card>
+
             <Card className="m-4 p-2 col-6" bg="dark">
                 <Card.Header as="h2">Add a Project</Card.Header>
                 <Card.Body>
