@@ -104,7 +104,7 @@ function Projects() {
     }
 
     const projThumbs = projects.map((item) =>
-        <Card key={item.title} className="m-2 p-1" bg="light" as={Col} style={{ color: "black" }}>
+        <Card key={item.title} className="m-2 p-1 " bg="light" as={Col} style={{ color: "black" }}>
             <div className="d-inline-block p-1 text-truncate">{item.title}</div>
             <Card.Img src={item.thumbnail} style={{ height: "90%", objectFit: "cover", borderRadius: 5 }} />
             <div className="d-flex justify-content-between">

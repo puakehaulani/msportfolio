@@ -48,13 +48,6 @@ const Dashboard = () => {
                     <span className="buttonText"><FcGoogle /> Logout</span>
                 </Button>
             </Navbar>
-            {/* <Link to="/"><</Link> */}
-            {/* <Row className="mx-2">
-                <Col><h1>Dashboard</h1></Col> */}
-            {/* <Col></Col> */}
-            {/* </Row> */}
-
-
 
             <Card className="m-4 p-2" bg="dark">
                 <Card.Header as="h2">Update About Me Section</Card.Header>
@@ -63,27 +56,28 @@ const Dashboard = () => {
                 </Card.Body>
             </Card>
 
-            <Row className="mx-2 p-2">
+            <Card className="m-4 p-2" bg="dark">
+                <Card.Header as="h2">Update Project Section</Card.Header>
+                <Card.Body>
+                    <Row className="row-cols-md-2 row-cols-sm-12">
+                        <Col bg="dark">
+                            <h2>Add a Project</h2>
+                            <div className="m-4">
+                                <ProjectForm />
+                            </div>
+                        </Col>
 
-                <Card as={Col} className="mx-2 p-1" bg="dark">
-                    <Card.Header as="h2">Add a Project</Card.Header>
-                    <Card.Body className="m-4">
-                        <ProjectForm />
-                    </Card.Body>
-                </Card>
-
-                <Card as={Col} className="mx-2 p-1" bg="dark">
-                    <Card.Header as="h2">Existing Projects</Card.Header>
-                    <Card.Body className="m-4">
-                        <Row>
-                            <ProjectThumbnail />
-                        </Row>
-                    </Card.Body>
-
-                </Card>
-
-
-            </Row>
+                        <Col bg="dark">
+                            <h2>Existing Projects</h2>
+                            <div className="m-4">
+                                <Row className="row-cols-sm-4">
+                                    <ProjectThumbnail />
+                                </Row>
+                            </div>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
 
         </>
     )
