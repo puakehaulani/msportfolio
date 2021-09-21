@@ -1,7 +1,10 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { BrowserRouter as Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar'
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import { getAuth, signOut } from "firebase/auth";
 import { FcGoogle } from 'react-icons/fc';
 import { Redirect } from 'react-router';
@@ -36,26 +39,52 @@ const Dashboard = () => {
     }
     return (
         <>
-            <Link to="/"><img src="../images/logo.png" width="120" height="80" alt="michael scales logo" /></Link> <Button onClick={handleSignOut} variant="dark" size="lg">
-                <span className="buttonText"><FcGoogle /> Logout</span>
-            </Button>
+            <Navbar className="mx-4 d-flex justify-content-between">
+                <div>
+                    <Navbar.Brand href="/"><img src="../images/logo.png" width="120" height="80" alt="michael scales logo" className="mt-2" /></Navbar.Brand>
+                    <h1>Dashboard</h1>
+                </div>
+                <Button onClick={handleSignOut} variant="dark" size="lg">
+                    <span className="buttonText"><FcGoogle /> Logout</span>
+                </Button>
+            </Navbar>
+            {/* <Link to="/"><</Link> */}
+            {/* <Row className="mx-2">
+                <Col><h1>Dashboard</h1></Col> */}
+            {/* <Col></Col> */}
+            {/* </Row> */}
 
-            <h1>Dashboard</h1>
 
-            <Card className="m-4 p-2 col-6" bg="dark">
+
+            <Card className="m-4 p-2" bg="dark">
                 <Card.Header as="h2">Update About Me Section</Card.Header>
                 <Card.Body>
                     <AboutForm />
                 </Card.Body>
             </Card>
 
-            <Card className="m-4 p-2 col-6" bg="dark">
-                <Card.Header as="h2">Add a Project</Card.Header>
-                <Card.Body>
-                    <ProjectForm />
-                </Card.Body>
-            </Card>
-            <ProjectThumbnail />
+            <Row className="mx-2 p-2">
+
+                <Card as={Col} className="mx-2 p-1" bg="dark">
+                    <Card.Header as="h2">Add a Project</Card.Header>
+                    <Card.Body className="m-4">
+                        <ProjectForm />
+                    </Card.Body>
+                </Card>
+
+                <Card as={Col} className="mx-2 p-1" bg="dark">
+                    <Card.Header as="h2">Existing Projects</Card.Header>
+                    <Card.Body className="m-4">
+                        <Row>
+                            <ProjectThumbnail />
+                        </Row>
+                    </Card.Body>
+
+                </Card>
+
+
+            </Row>
+
         </>
     )
 }
