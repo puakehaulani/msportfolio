@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Dashboard from './pages/Dashboard';
+import Notfound from "./pages/NotFound";
 import UserProvider from "./providers/UserProvider";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path='/logout' component={Logout} />
+            <Route>
+              <Notfound />
+            </Route>
           </Switch>
         </Container>
         <span className="attribute">created with &lt;3 by lexijack</span>
