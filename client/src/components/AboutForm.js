@@ -17,23 +17,30 @@ const storage = getStorage();
 const AboutForm = () => {
     const [aboutBody, setAboutBody] = useState("")
     const [show, setShow] = useState(false);
-    const [counter, setCounter] = useState(6);
-
+    const [counter, setCounter] = useState();
+    const [newAboutBody, setNewAboutBody] = useState("")
+    const [newCounter, setNewCounter] = useState("")
 
     async function getAbout(db) {
         const aboutCol = collection(db, 'about')
         const aboutSnapshot = await getDocs(aboutCol);
         const aboutList = aboutSnapshot.docs.map(doc => doc.data());
         // console.log(aboutList[0].content)
-        return setAboutBody(aboutList[0].content);
+
+        setAboutBody(aboutList[0].content);
+        setCounter(aboutList[0].counter)
+
     }
 
     useEffect(() => {
-        // pull about content from db
         getAbout(db)
-        // store in aboutBody state
-        // return rendered content
+
     }, [])
+
+    useEffect(() => {
+        console.log(newCounter)
+        console.log(newAboutBody)
+    }, [newCounter, newAboutBody])
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -43,19 +50,25 @@ const AboutForm = () => {
     }
 
     const handlePullData = async (event) => {
-        alert("okay i guess youre sureeeee")
+        event.preventDefault();
+        // alert("okay i guess youre sureeeee")
         // make API call to pull data
         // assign to aboutBody state
-        // send to DB:
-        //            await setDoc(doc(db, "about", "summary"), {
-        //                content: aboutBody
-        //             })
-        //             alert('About updated on Google Cloud Firestore 🔥')
-        // make sure new data rerenders
+        const tempAbout = ("merpmerp")
         // decrease counter
-        setCounter(counter - 1)
-        // close modal
-        handleClose()
+        const tempCounter = counter - 1
+        // send aboutBody and counter to DB:
+        setDoc(doc(db, "about", "summary"), {
+            content: tempAbout,
+            counter: tempCounter
+        }).then(() => {
+            alert('About updated on Google Cloud Firestore 🔥')
+            // make sure new data rerenders
+            // close modal
+            handleClose()
+            getAbout(db)
+        })
+
     }
 
 
@@ -69,8 +82,12 @@ const AboutForm = () => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="primary" onClick={onButtonClick}> Pull New Content</Button>
-                    <Row><div><Badge bg="warning" text="dark">Warning:</Badge> {counter} data pulls available</div></Row>
+                    {counter > 0 ?
+                        <><Button variant="primary" onClick={onButtonClick}> Pull New Content</Button>
+                            <Row><div><Badge bg="warning" text="dark">Warning:</Badge> {counter} data pulls available</div></Row></>
+                        :
+                        <div>You are out of pulls. Contact developer for next steps.</div>
+                    }
                 </Card.Footer>
             </Card>
 
