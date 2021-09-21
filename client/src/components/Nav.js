@@ -43,7 +43,7 @@ class Navigation extends React.Component {
                     <ul className="flex-column">
                         <li>
                             <Navbar.Brand href="#">
-                                <img src="../images/logo.png" width="120" height="80" alt="michael scales logo" />
+                                <img src="../images/logo.png" width="120" height="80" alt="michael scales logo" style={{ background: "radial-gradient(closest-corner at 40px 16px, rgba(0, 0, 0, .2), transparent)", borderRadius: 100 }} />
                             </Navbar.Brand>
                         </li>
                         <li className="navbar-nav">
