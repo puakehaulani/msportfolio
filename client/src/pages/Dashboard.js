@@ -78,7 +78,6 @@ const Dashboard = () => {
                     </Row>
                 </Card.Body>
             </Card>
-
         </>
     )
 }
