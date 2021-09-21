@@ -140,12 +140,9 @@ function Projects() {
 
     return (
         <>
-            {/* <Card className="m-4 px-4 py-2" bg="dark">
-                <h3>Existing projects</h3>
-                <Row> */}
+
             {projThumbs}
-            {/* </Row>
-            </Card > */}
+
 
             <Modal show={showModal} onHide={handleClose} contentClassName="editModal">
                 <Modal.Header closeButton>
