@@ -47,6 +47,7 @@ const Dashboard = () => {
             // console.log("5")
             // return (< Redirect to={redirect} />)
             // }
+            // To Do: LOL FIX THIS
             window.location.reload()
         }).catch((error) => {
             // An error happened.
