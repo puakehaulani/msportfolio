@@ -1,7 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
 import { getAuth } from "firebase/auth"
-import { Redirect } from 'react-router';
-
 
 export const UserContext = createContext({ user: null })
 const auth = getAuth()
