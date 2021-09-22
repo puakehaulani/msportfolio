@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Background from '../assets/images/bkg.jpg';
 import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
 import { Redirect } from 'react-router-dom';
-import { collection, getDocs, where, setDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
+import { query, collection, getDocs, where, setDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
 
 
 import { UserContext } from '../providers/UserProvider';
@@ -27,16 +27,32 @@ function Login() {
         try {
             const res = await signInWithPopup(auth, googleProvider);
             const user = res.user;
-            const query = await getDocs(collection(db, 'users'), where("uid", "==", user.uid))
 
-            if (query.docs.length === 0) {
+            const qUsers = query(collection(db, "users"))
+            const querySnapshotUsers = await getDocs(qUsers)
+
+            const qExists = query(collection(db, "users"), where("uid", "==", user.uid))
+            const querySnapshotExists = await getDocs(qExists);
+
+            // check to see if there are more than 2 users which is the max. if there are:
+            // verify if the user logging in is one of those users
+            // if the user loggin in is not one of those users, kick their ass out
+            // if the user loggin in is one of those users, allow them to login
+            if (querySnapshotUsers.docs.length > 2) {
+                console.log("no")
+
+            }
+            // if there are less than 2 users, we can still create users
+            // check to see if the user logging in is one of the users in the db
+            // if not, create user
+            // if yes, allow log in
+            else if (querySnapshotExists.docs.length === 0) {
                 await setDoc(doc(db, "users", user.uid), {
                     uid: user.uid,
                     name: user.displayName,
                     authProvider: "google",
                     email: user.email,
                 });
-                alert('User added to Google Cloud Firestore 🔥')
             }
         } catch (err) {
             console.error(err);
