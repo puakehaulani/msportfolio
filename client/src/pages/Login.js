@@ -61,8 +61,15 @@ function Login() {
     };
 
     const handleSignIn = () => {
-        // signInWithRedirect(auth, provider)
         signInWithGoogle()
+        // if (user) {
+        //     return (
+        //         <Redirect to="/dashboard" />
+        //     )
+        // }
+
+
+
         // getRedirectResult(auth)
         //     .then((result) => {
         //         // This gives you a Google Access Token. You can use it to access Google APIs.
@@ -124,11 +131,6 @@ function Login() {
     //     responseType: 'code',
     //     // prompt: 'consent',
     // });
-    if (user) {
-        return (
-            <Redirect to="/dashboard" />
-        )
-    }
     return (
         <div style={{
             height: "100vh",
