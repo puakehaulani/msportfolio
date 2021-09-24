@@ -1,9 +1,15 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-
+  "short_name": "msportfolio",
+  "name": "Michael Scales Portfolio made with love and React by Lexi Jack",
+  "icons": [
+    {
+      "src": "./images/self.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 }
