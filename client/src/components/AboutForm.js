@@ -18,15 +18,11 @@ const AboutForm = () => {
     const [aboutBody, setAboutBody] = useState("")
     const [show, setShow] = useState(false);
     const [counter, setCounter] = useState();
-    const [newAboutBody, setNewAboutBody] = useState("")
-    const [newCounter, setNewCounter] = useState("")
 
     async function getAbout(db) {
         const aboutCol = collection(db, 'about')
         const aboutSnapshot = await getDocs(aboutCol);
         const aboutList = aboutSnapshot.docs.map(doc => doc.data());
-        // console.log(aboutList[0].content)
-
         setAboutBody(aboutList[0].content);
         setCounter(aboutList[0].counter)
 
@@ -37,10 +33,6 @@ const AboutForm = () => {
 
     }, [])
 
-    useEffect(() => {
-        console.log(newCounter)
-        console.log(newAboutBody)
-    }, [newCounter, newAboutBody])
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -51,25 +43,19 @@ const AboutForm = () => {
 
     const handlePullData = async (event) => {
         event.preventDefault();
-        // alert("okay i guess youre sureeeee")
-        // make API call to pull data
-        // assign to aboutBody state
-        const tempAbout = (`I’m generally curious and I like to experiment. I started in the US Navy nuclear program working on submarines. After serving, I cross trained to software development and I couldn’t be happier. I love solving problems, so it feels like a great fit.
-
-        I really enjoy full stack development with an emphasis on working in Linux/*nix environments. I’m experienced in mobile and web stacks including creating+maintaining large team infrastructure and tooling.
-        
-        I’m interested in all things engineering, containerizing everything, building cool dev tools, and space. Space exploration is really interesting to me and I hope to work in the industry some day. 🚀 🌎`)
+        // make API call to pull data, set to temp state below
+        // const tempAbout = [[[apiResponse]]]
         // decrease counter
         const tempCounter = counter - 1
         // send aboutBody and counter to DB:
         setDoc(doc(db, "about", "summary"), {
-            content: tempAbout,
+            // content: tempAbout,
             counter: tempCounter
         }).then(() => {
             alert('About updated on Google Cloud Firestore 🔥')
-            // make sure new data rerenders
             // close modal
             handleClose()
+            // make sure new data rerenders
             getAbout(db)
         })
 
