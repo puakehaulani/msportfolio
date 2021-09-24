@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { collection, docs, getDocs } from 'firebase/firestore';
 import Container from "react-bootstrap/Container";
 import { collection, getDocs } from 'firebase/firestore';
 
 import { db } from '../base';
 
+import { db } from '../base';
+
 function About() {
-    const [aboutBody, setAboutBody] = useState()
+
+    const [aboutBody, setAboutBody] = useState("")
 
     async function getAbout(db) {
         const aboutCol = collection(db, 'about')

@@ -52,17 +52,6 @@ function Projects() {
         }
     }, [])
 
-    const onEditClick = (docID) => {
-        // await setDoc(doc(db, "projects", docID), {
-        //     thumbnail: url,
-        //                 title: title,
-        //                 summary: summary,
-        //                 repoURL: repoURL,
-        //                 deployURL: deployURL
-        // })
-        alert("heyyyyy")
-    }
-
     async function onDeleteClick(docID) {
         await deleteDoc(doc(db, "projects", docID))
 
@@ -115,38 +104,34 @@ function Projects() {
     }
 
     const projThumbs = projects.map((item) =>
-        <Card key={item.title} className="col-2 m-2 p-1" bg="light" as={Col}>
+        <Card key={item.title} className="m-2 p-1 " bg="light" as={Col} style={{ color: "black" }}>
+            <div className="d-inline-block p-1 text-truncate">{item.title}</div>
             <Card.Img src={item.thumbnail} style={{ height: "90%", objectFit: "cover", borderRadius: 5 }} />
-            <Card.Header as="h5" style={{
-                backgroundColor: "transparent", borderColor: "transparent", color: "black", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "baseline"
-            }}>
+            <div className="d-flex justify-content-between">
                 <Button disabled={true} style={{ backgroundColor: "transparent", borderWidth: 0 }}
                     onClick={() => handleShow(item)}
                 >
                     <FaEdit color="rosyBrown" size="1.5rem" />
                 </Button>
-                {item.title}
-                <button
+
+                <Button
                     style={{ backgroundColor: "transparent", borderWidth: 0 }}
                     onClick={() => {
                         onDeleteClick(item.title);
                     }}
                 >
                     < FaTrashAlt color="crimson" size="1.5rem" />
-                </button>
-            </Card.Header>
+                </Button>
+            </div>
         </Card>
     )
 
 
     return (
         <>
-            <Card className="m-4 px-4 py-2" bg="dark">
-                <h3>Existing projects</h3>
-                <Row>
-                    {projThumbs}
-                </Row>
-            </Card >
+
+            {projThumbs}
+
 
             <Modal show={showModal} onHide={handleClose} contentClassName="editModal">
                 <Modal.Header closeButton>

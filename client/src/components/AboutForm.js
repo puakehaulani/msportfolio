@@ -54,7 +54,11 @@ const AboutForm = () => {
         // alert("okay i guess youre sureeeee")
         // make API call to pull data
         // assign to aboutBody state
-        const tempAbout = ("merpmerp")
+        const tempAbout = (`I’m generally curious and I like to experiment. I started in the US Navy nuclear program working on submarines. After serving, I cross trained to software development and I couldn’t be happier. I love solving problems, so it feels like a great fit.
+
+        I really enjoy full stack development with an emphasis on working in Linux/*nix environments. I’m experienced in mobile and web stacks including creating+maintaining large team infrastructure and tooling.
+        
+        I’m interested in all things engineering, containerizing everything, building cool dev tools, and space. Space exploration is really interesting to me and I hope to work in the industry some day. 🚀 🌎`)
         // decrease counter
         const tempCounter = counter - 1
         // send aboutBody and counter to DB:
