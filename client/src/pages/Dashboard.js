@@ -54,7 +54,7 @@ const Dashboard = () => {
             <Card className="m-4 p-2" bg="dark">
                 <Card.Header as="h2">Update Header Section</Card.Header>
                 <Card.Body>
-                    <Row className="row-cols-md-2 row-cols-sm-12">
+                    {/* <Row className="row-cols-md-2 row-cols-sm-12">
                         <Col bg="dark">
                             <h2>Update Content</h2>
                             <div className="m-4">
@@ -68,7 +68,8 @@ const Dashboard = () => {
                                 <HeaderContent />
                             </div>
                         </Col>
-                    </Row>
+                    </Row> */}
+                    <HeaderForm />
                 </Card.Body>
             </Card>
 
