@@ -11,7 +11,6 @@ import { Redirect } from 'react-router';
 
 import { UserContext } from '../providers/UserProvider';
 import HeaderForm from '../components/HeaderForm';
-import HeaderContent from '../components/HeaderCurrent';
 import AboutForm from '../components/AboutForm';
 import ProjectForm from '../components/ProjectForm';
 import ProjectThumbnail from '../components/ProjectThumbnail';

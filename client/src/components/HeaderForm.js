@@ -56,6 +56,7 @@ const HeaderForm = () => {
     const onUpdateClick = async (e) => {
         e.preventDefault()
         if (text) {
+            // TODO: make sure to include programatically the line break
             updateDoc(doc(db, "header", "1"), {
                 text: text,
             })
