@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { collection, docs, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import Container from "react-bootstrap/Container";
 
 import { db } from '../base';
@@ -13,19 +13,11 @@ function About() {
         const aboutSnapshot = await getDocs(aboutCol);
         const aboutList = aboutSnapshot.docs.map(doc => doc.data());
         setAboutBody(aboutList[0].content);
-
     }
 
     useEffect(() => {
         getAbout(db)
-
     }, [])
-
-    // useEffect(() => {
-    //     console.log(aboutBody)
-    //     const newAboutBody = aboutBody.replace("\n\n", "xxxxxxxxxxxxxxxx")
-    //     console.log(newAboutBody)
-    // }, [aboutBody])
 
     return (
         <Container fluid="true" id="about" className="jumbotron bg-dark adjustRight mt-5">

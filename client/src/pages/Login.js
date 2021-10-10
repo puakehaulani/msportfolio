@@ -1,21 +1,17 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { useGoogleLogin } from 'react-google-login';
+import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import Button from 'react-bootstrap/Button';
 import Background from '../assets/images/bkg.jpg';
-import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Redirect } from 'react-router-dom';
-import { query, collection, getDocs, where, setDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
+import { query, collection, getDocs, where, setDoc, doc } from 'firebase/firestore';
 
 
 import { UserContext } from '../providers/UserProvider';
 import { db } from '../base';
 
-// refresh token
-// import { refreshTokenSetup } from '../utils/refreshToken';
-
-const clientId =
-    window.env.GOOGLE_CLIENT_ID
+// const clientId =
+//     window.env.GOOGLE_CLIENT_ID
 
 function Login() {
     const user = useContext(UserContext);

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure'
-import { collection, addDoc, doc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { RiImageAddFill, RiImageLine } from 'react-icons/ri';
 
@@ -19,7 +18,6 @@ const HeaderForm = () => {
     const [text, setText] = useState(null)
     const [tempText, setTempText] = useState("")
     const [file, setFile] = useState(null)
-    const [imgURL, setImgURL] = useState()
     const selectFileRef = useRef();
 
     async function getHeader(db) {

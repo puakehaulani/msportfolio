@@ -1,19 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge'
 import Modal from 'react-bootstrap/Modal';
-import { collection, addDoc, doc, setDoc, getDocs } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { RiImageAddFill, RiImageLine } from 'react-icons/ri';
+import { collection, doc, setDoc, getDocs } from 'firebase/firestore';
 
 import { db } from '../base';
 import API from '../utils/API';
-
-const storage = getStorage();
 
 const AboutForm = () => {
     const [aboutBody, setAboutBody] = useState("")
@@ -26,7 +20,6 @@ const AboutForm = () => {
         const aboutList = aboutSnapshot.docs.map(doc => doc.data());
         setAboutBody(aboutList[0].content);
         setCounter(aboutList[0].counter)
-
     }
 
     useEffect(() => {
@@ -34,15 +27,12 @@ const AboutForm = () => {
 
     }, [])
 
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const onButtonClick = () => {
         handleShow()
     }
-
-
 
     const handlePullData = async (event) => {
         event.preventDefault();
@@ -56,7 +46,6 @@ const AboutForm = () => {
             .catch(err => {
                 console.log(err)
             })
-        // console.log(tempAboutContent)
         const tempCounter = counter - 1
         handleClose()
         setDoc(doc(db, "about", "summary"), {
@@ -64,7 +53,6 @@ const AboutForm = () => {
             counter: tempCounter
         }).then(() => {
             alert('About updated on Google Cloud Firestore 🔥')
-            // make sure new data rerenders
             getAbout(db)
         })
 

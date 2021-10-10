@@ -1,46 +1,45 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-import { collection, addDoc, doc, updateDoc, getDoc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-import { db } from '../base';
-const storage = getStorage();
+// import { db } from '../base';
+// const storage = getStorage();
 
 export default function Resume() {
     // const [resumePDF, setResumePDF] = useState("")
 
-    async function getResume(db) {
-        // const docRef = doc(db, "resume", "1");
-        // const docSnap = await getDoc(docRef);
+    // async function getResume(db) {
+    //     // const docRef = doc(db, "resume", "1");
+    //     // const docSnap = await getDoc(docRef);
 
-        // if (docSnap.exists()) {
-        //     setResumePDF(docSnap.data().pdf)
-        // } else {
-        //     console.log("No such document!");
-        // }
+    //     // if (docSnap.exists()) {
+    //     //     setResumePDF(docSnap.data().pdf)
+    //     // } else {
+    //     //     console.log("No such document!");
+    //     // }
 
-        getDownloadURL(ref(storage, 'resume/resume.pdf'))
-            .then((url) => {
+    //     getDownloadURL(ref(storage, 'resume/resume.pdf'))
+    //         .then((url) => {
 
-                // This can be downloaded directly:
-                const xhr = new XMLHttpRequest();
-                xhr.responseType = 'blob';
-                xhr.onload = (event) => {
-                    const blob = xhr.response;
-                };
-                xhr.open('GET', url);
-                xhr.send();
+    //             // This can be downloaded directly:
+    //             const xhr = new XMLHttpRequest();
+    //             xhr.responseType = 'blob';
+    //             xhr.onload = (event) => {
+    //                 const blob = xhr.response;
+    //             };
+    //             xhr.open('GET', url);
+    //             xhr.send();
 
-                // // Or inserted into an <img> element
-                // const img = document.getElementById('myimg');
-                // img.setAttribute('src', url);
-            })
-            .catch((error) => {
-                // Handle any errors
-            });
-    }
+    //             // // Or inserted into an <img> element
+    //             // const img = document.getElementById('myimg');
+    //             // img.setAttribute('src', url);
+    //         })
+    //         .catch((error) => {
+    //             // Handle any errors
+    //         });
+    // }
 
 
     // useEffect(() => {
