@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Container from "react-bootstrap/Container";
-import { collection, doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 
 import { db } from '../base';
 
 export default function Header() {
-    const [headerText, setHeaderText] = useState()
+    const [headerText, setHeaderText] = useState(``)
     const [headerImage, setHeaderImage] = useState()
 
     async function getHeader(db) {
@@ -13,7 +13,7 @@ export default function Header() {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            setHeaderText(docSnap.data().text)
+            setHeaderText(docSnap.data().text.replaceAll("//n", `\n\r`))
             setHeaderImage(docSnap.data().image)
         } else {
             console.log("No such document!");

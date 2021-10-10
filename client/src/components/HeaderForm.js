@@ -17,6 +17,7 @@ const HeaderForm = () => {
     const [headerText, setHeaderText] = useState("")
     const [headerImage, setHeaderImage] = useState("")
     const [text, setText] = useState(null)
+    const [tempText, setTempText] = useState(null)
     const [file, setFile] = useState(null)
     const [imgURL, setImgURL] = useState()
     const selectFileRef = useRef();
@@ -32,11 +33,20 @@ const HeaderForm = () => {
             console.log("No such document!");
         }
     }
+    useEffect(() => {
+        if (tempText !== null) {
+            const newText = tempText.replaceAll(/[\n\r]/g, "//n")
+            console.log(newText)
+            setText(newText)
+        }
+
+    }, [tempText])
 
     useEffect(() => {
         getHeader(db)
 
     }, [])
+
     const handleSelectFile = () => {
         selectFileRef.current?.click();
     };
@@ -46,7 +56,7 @@ const HeaderForm = () => {
     }
 
     const onResetText = () => {
-        setText("")
+        setTempText("")
     }
     const resetFile = () => {
         setFile(null)
@@ -100,9 +110,9 @@ const HeaderForm = () => {
                                 required
                                 as="textarea"
                                 rows={2}
-                                value={text}
+                                value={tempText}
                                 onChange={e =>
-                                    setText(e.target.value)}
+                                    setTempText(e.target.value)}
                             />
                         </Form.Group>
                         <Row className="mb-3">
