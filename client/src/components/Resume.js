@@ -9,7 +9,7 @@ import { db } from '../base';
 const storage = getStorage();
 
 export default function Resume() {
-    const [resumePDF, setResumePDF] = useState("")
+    // const [resumePDF, setResumePDF] = useState("")
 
     async function getResume(db) {
         // const docRef = doc(db, "resume", "1");
@@ -43,18 +43,18 @@ export default function Resume() {
     }
 
 
-    useEffect(() => {
-        getResume(db)
-        console.log(resumePDF)
-    }, [])
+    // useEffect(() => {
+    //     getResume(db)
+    //     console.log(resumePDF)
+    // }, [])
 
     return (
         <Container fluid="true" id="resume" className="jumbotron bg-dark adjustRight mt-5">
 
             <h1 className="d-flex justify-content-end neonText rightHeader">Resume</h1>
 
-            <Button className="btn btn-danger align-self-start mt-5 mr-5 resumeButton" role="button" href="./resume.pdf"
-                download={resumePDF}>
+            <Button className="btn btn-danger align-self-start mt-5 mr-5 resumeButton" role="button" href="./resume.pdf" download
+            >
                 Download
             </Button>
 
