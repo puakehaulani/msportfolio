@@ -23,6 +23,7 @@
     "react-scroll": "^1.8.3",
     "web-vitals": "^1.1.2"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
