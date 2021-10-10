@@ -39,6 +39,7 @@ class Navigation extends React.Component {
     render() {
         return (
             <Sidebar
+                children={<></>}
                 sidebar={
                     <ul className="flex-column">
                         <li>
