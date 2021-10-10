@@ -17,7 +17,7 @@ const HeaderForm = () => {
     const [headerText, setHeaderText] = useState("")
     const [headerImage, setHeaderImage] = useState("")
     const [text, setText] = useState(null)
-    const [tempText, setTempText] = useState(null)
+    const [tempText, setTempText] = useState("")
     const [file, setFile] = useState(null)
     const [imgURL, setImgURL] = useState()
     const selectFileRef = useRef();
@@ -27,7 +27,7 @@ const HeaderForm = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            setHeaderText(docSnap.data().text)
+            setHeaderText(docSnap.data().text.replaceAll("//n", `\n\r`))
             setHeaderImage(docSnap.data().image)
         } else {
             console.log("No such document!");
@@ -36,7 +36,6 @@ const HeaderForm = () => {
     useEffect(() => {
         if (tempText !== null) {
             const newText = tempText.replaceAll(/[\n\r]/g, "//n")
-            console.log(newText)
             setText(newText)
         }
 
@@ -66,7 +65,6 @@ const HeaderForm = () => {
     const onUpdateClick = async (e) => {
         e.preventDefault()
         if (text) {
-            // TODO: make sure to include programatically the line break
             updateDoc(doc(db, "header", "1"), {
                 text: text,
             })
@@ -171,7 +169,7 @@ const HeaderForm = () => {
                             alt="header content"
                             src={headerImage}
                         />
-                        <Figure.Caption>
+                        <Figure.Caption style={{ whiteSpace: 'pre-line' }}>
                             {headerText}
                         </Figure.Caption>
                     </Figure>
