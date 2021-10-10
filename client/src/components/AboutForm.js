@@ -11,6 +11,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { RiImageAddFill, RiImageLine } from 'react-icons/ri';
 
 import { db } from '../base';
+import API from '../utils/API';
 
 const storage = getStorage();
 
@@ -41,20 +42,28 @@ const AboutForm = () => {
         handleShow()
     }
 
+
+
     const handlePullData = async (event) => {
         event.preventDefault();
-        // make API call to pull data, set to temp state below
-        // const tempAbout = [[[apiResponse]]]
-        // decrease counter
+        const tempAboutContent = await API.scrapeLinkedIn()
+            .then(res => {
+                console.log(res)
+                const save = res.data.summary
+                return save
+            }
+            )
+            .catch(err => {
+                console.log(err)
+            })
+        // console.log(tempAboutContent)
         const tempCounter = counter - 1
-        // send aboutBody and counter to DB:
+        handleClose()
         setDoc(doc(db, "about", "summary"), {
-            // content: tempAbout,
+            content: tempAboutContent,
             counter: tempCounter
         }).then(() => {
             alert('About updated on Google Cloud Firestore 🔥')
-            // close modal
-            handleClose()
             // make sure new data rerenders
             getAbout(db)
         })
@@ -67,7 +76,7 @@ const AboutForm = () => {
             <Card>
                 <Card.Body>
                     <Card.Title>Current content:</Card.Title>
-                    <Card.Text>
+                    <Card.Text style={{ whiteSpace: 'pre-line' }}>
                         {aboutBody}
                     </Card.Text>
                 </Card.Body>
@@ -83,13 +92,16 @@ const AboutForm = () => {
 
             <Modal show={show} onHide={handleClose} centered contentClassName="bg-dark">
                 <Modal.Header closeButton>
-                    Are you SURE you want to pull?
+                    <h1>Are you SURE you want to pull?</h1>
                 </Modal.Header>
+                <Modal.Body>
+                    <h4>You only have {counter} pulls left.</h4>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={handlePullData}>
+                    <Button variant="danger" onClick={handlePullData}>
                         LesGitItDoOoD
                     </Button>
                 </Modal.Footer>
