@@ -1,8 +1,8 @@
 const express = require("express");
-
-// const mongoose = require("mongoose");
+const cors = require('cors')
 const routes = require("./routes");
 const app = express();
+app.use(cors())
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -14,16 +14,6 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-
-// Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/msportfolio", {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false
-
-// }).then(() => console.log("Database Connected Successfully"))
-//     .catch(err => console.log(err));
 
 // Start the API server
 app.listen(PORT, function () {

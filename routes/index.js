@@ -1,14 +1,15 @@
+const path = require("path");
 const router = require("express").Router();
-const userController = require("../controllers/userController");
-const projectController = require("../controllers/projectController");
+const apiRoutes = require("./dbRoutes");
+const externalRoutes = require('./externalRoutes')
 
-router.route("/api/user/:email")
-    .get(userController.findUser);
+// API Routes
+router.use("/api", apiRoutes);
+router.use("/external", externalRoutes)
 
-router.route("/api/project")
-    .get(projectController.getProjects)
+// If no API routes are hit, send the React app
+router.use(function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
-router.route("/api/project/new")
-    .post(projectController.createProject)
-
-module.exports = router
+module.exports = router;
