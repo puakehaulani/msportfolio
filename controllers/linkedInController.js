@@ -1,5 +1,7 @@
 const axios = require("axios")
 
+// TODO: replace api key and move to .env
+
 // const api_key = process.env.REACT_APP_PROXYCURL_API_KEY
 const api_key = "b7eecfb0-3bea-4c43-b828-b777164ca8b5"
 module.exports = {
