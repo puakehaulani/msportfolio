@@ -14,6 +14,7 @@ import HeaderForm from '../components/HeaderForm';
 import AboutForm from '../components/AboutForm';
 import ProjectForm from '../components/ProjectForm';
 import ProjectThumbnail from '../components/ProjectThumbnail';
+import ResumeForm from '../components/ResumeForm';
 
 const Dashboard = () => {
     const user = useContext(UserContext);
@@ -53,21 +54,6 @@ const Dashboard = () => {
             <Card className="m-4 p-2" bg="dark">
                 <Card.Header as="h2">Update Header Section</Card.Header>
                 <Card.Body>
-                    {/* <Row className="row-cols-md-2 row-cols-sm-12">
-                        <Col bg="dark">
-                            <h2>Update Content</h2>
-                            <div className="m-4">
-                                <HeaderForm />
-                            </div>
-                        </Col>
-
-                        <Col bg="dark">
-                            <h2>Current Content</h2>
-                            <div className="m-4">
-                                <HeaderContent />
-                            </div>
-                        </Col>
-                    </Row> */}
                     <HeaderForm />
                 </Card.Body>
             </Card>
@@ -101,6 +87,14 @@ const Dashboard = () => {
                     </Row>
                 </Card.Body>
             </Card>
+
+            <Card className="m-4 p-2" bg="dark">
+                <Card.Header as="h2">Update Resume Section</Card.Header>
+                <Card.Body>
+                    <ResumeForm />
+                </Card.Body>
+            </Card>
+
         </>
     )
 }
