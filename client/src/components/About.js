@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { collection, getDocs } from 'firebase/firestore';
 import Container from "react-bootstrap/Container";
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import { db } from '../base';
 
@@ -20,16 +22,21 @@ function About() {
     }, [])
 
     return (
-        <Container fluid="true" id="about" className="jumbotron bg-dark adjustRight mt-5">
-            <h1 className="d-flex justify-content-end rightHeader neonText">
-                About me
-            </h1>
+        <Container fluid="sm" id="about" className="jumbotron bg-dark adjustRight mt-5">
+            <Row>
+                <Col xs>
+                    <h1 className="d-flex justify-content-end rightHeader neonText">
+                        About me
+                    </h1>
 
-            <div className="sectionContent" style={{ whiteSpace: 'pre-line' }}>
-                <p>
-                    {aboutBody}
-                </p>
-            </div>
+                    <div className="sectionContent" style={{ whiteSpace: 'pre-line' }}>
+                        <p>
+                            {aboutBody}
+                        </p>
+                    </div>
+
+                </Col>
+            </Row>
         </Container>
     );
 }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 import { doc, getDoc } from 'firebase/firestore';
 
 import { db } from '../base';
@@ -26,14 +28,18 @@ export default function Header() {
     }, [])
 
     return (
-        <Container>
-            <div id="header" className="d-flex justify-content-around">
-                <div className="entrance neonText">
-                    {headerText}
-                </div>
-                <img src={headerImage} alt="self portrait" height="300rem" width="300rem" />
-            </div>
+        <Container fluid="sm" id="header" >
+            <Row>
+                <Col>
+                    <div className="entrance neonText">
+                        {headerText}
+                    </div>
+                </Col>
+                <Col>
+                    <img src={headerImage} alt="self portrait" height="300rem" width="300rem" />
 
+                </Col>
+            </Row>
         </Container>
     )
 }

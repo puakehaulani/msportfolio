@@ -40,7 +40,7 @@ function Projects() {
     )
 
     return (
-        <Container fluid="true" id="projects" className="jumbotron bg-dark adjustLeft mt-5">
+        <Container fluid="sm" id="projects" className="jumbotron bg-dark adjustLeft mt-5">
             <h1 className="d-flex justify-content-start neonText leftHeader">
                 Projects
             </h1>

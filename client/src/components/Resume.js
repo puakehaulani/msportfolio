@@ -48,7 +48,7 @@ export default function Resume() {
     // }, [])
 
     return (
-        <Container fluid="true" id="resume" className="jumbotron bg-dark adjustRight mt-5">
+        <Container fluid="sm" id="resume" className="jumbotron bg-dark adjustRight mt-5">
 
             <h1 className="d-flex justify-content-end neonText rightHeader">Resume</h1>
 
