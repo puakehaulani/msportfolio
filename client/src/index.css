@@ -29,7 +29,7 @@ a {
 }
 
 .Element{
-padding-right: 3rem;
+padding-right: 4rem;
   padding-left: 7rem
 }
 
@@ -94,9 +94,9 @@ text-orientation: mixed;
 }
 
 .entrance {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   font-size: 80px;
-  padding: 10px;
+  /* padding: 10px; */
   display: inline-block;
   white-space: pre-wrap;
   /* overflow: hidden; */
@@ -203,6 +203,7 @@ margin-bottom: 3rem;
 footer {
   clear: both;
   position: absolute;
+  background-color:transparent;
   bottom: 0;
   width: 100%;
   }

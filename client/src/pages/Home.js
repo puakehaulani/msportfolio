@@ -27,8 +27,9 @@ const Home = () => {
                 <Element name="about" className="Element"><About /></Element>
                 <Element name="projects" className="Element"><Projects /></Element>
                 <Element name="resume" className="Element"><Resume /></Element>
+                <Element name="contact"><Footer /></Element>
             </Parallax>
-            <Element name="contact"><Footer /></Element>
+
         </>
     )
 }
