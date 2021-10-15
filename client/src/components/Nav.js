@@ -1,12 +1,10 @@
-
 import React from "react";
 import Sidebar from "react-sidebar";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from "react-scroll";
 
-
-const mql = window.matchMedia(`(min-width: 800px)`);
+const mql = window.matchMedia(`(min-width: 500px)`);
 
 class Navigation extends React.Component {
     constructor(props) {
