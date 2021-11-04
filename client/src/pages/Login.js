@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import Button from 'react-bootstrap/Button';
 import Background from '../assets/images/bkg.jpg';
@@ -14,6 +14,8 @@ import { db } from '../base';
 //     window.env.GOOGLE_CLIENT_ID
 
 function Login() {
+    // const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     const user = useContext(UserContext);
 
     const googleProvider = new GoogleAuthProvider();
@@ -24,32 +26,36 @@ function Login() {
             const res = await signInWithPopup(auth, googleProvider);
             const user = res.user;
 
+            // get all registered users
             const qUsers = query(collection(db, "users"))
             const querySnapshotUsers = await getDocs(qUsers)
 
+            // see if any registered users match the user logging in
             const qExists = query(collection(db, "users"), where("uid", "==", user.uid))
             const querySnapshotExists = await getDocs(qExists);
 
-            // check to see if there are more than 2 users which is the max. if there are:
-            // verify if the user logging in is one of those users
-            // if the user loggin in is not one of those users, kick their ass out
-            // if the user loggin in is one of those users, allow them to login
-            if (querySnapshotUsers.docs.length > 2) {
-                console.log("no")
-
+            // first, if querySnapshotExists docs are length of 1, the user is registered. log them in!
+            if (querySnapshotExists.docs.length === 1) {
+                console.log("user exists!")
+                // Login here
             }
-            // if there are less than 2 users, we can still create users
-            // check to see if the user logging in is one of the users in the db
-            // if not, create user
-            // if yes, allow log in
-            else if (querySnapshotExists.docs.length === 0) {
+            // then, if there are less than 2 users, create a user, then log them in.
+            else if (querySnapshotUsers.docs.length < 2) {
                 await setDoc(doc(db, "users", user.uid), {
                     uid: user.uid,
                     name: user.displayName,
                     authProvider: "google",
                     email: user.email,
                 });
+                console.log("created user")
+                // Login here
             }
+            // finally, if there are 2+ users (and the qse length is 0), the user isnt registered and cannot register. kick them out.
+            else {
+                console.log("kick them out")
+                // Todo: redirect user to main page with note about admin access only
+            }
+
         } catch (err) {
             console.error(err);
             alert(err.message);
@@ -60,20 +66,19 @@ function Login() {
         signInWithGoogle()
         // if (user) {
         //     return (
-        //         <Redirect to="/dashboard" />
+        //         // <Redirect to="/dashboard" />
+        //         setIsLoggedIn(true)
         //     )
         // }
 
-
-
-
     }
 
-    if (user) {
-        return (
-            <Redirect to="/dashboard" />
-        )
-    }
+    // if (user) {
+    //     return (
+    //         // <Redirect to="/dashboard" />
+    //         // setIsLoggedIn(true)
+    //     )
+    // }
 
     return (
         <div style={{
