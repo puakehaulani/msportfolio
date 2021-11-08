@@ -15,6 +15,7 @@ import { db } from '../base';
 
 function Login() {
     // const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [registered, setRegistered] = useState(false)
 
     const user = useContext(UserContext);
 
@@ -37,6 +38,7 @@ function Login() {
             // first, if querySnapshotExists docs are length of 1, the user is registered. log them in!
             if (querySnapshotExists.docs.length === 1) {
                 console.log("user exists!")
+                setRegistered(true)
                 // Login here
             }
             // then, if there are less than 2 users, create a user, then log them in.
@@ -48,12 +50,14 @@ function Login() {
                     email: user.email,
                 });
                 console.log("created user")
+                setRegistered(true)
                 // Login here
             }
             // finally, if there are 2+ users (and the qse length is 0), the user isnt registered and cannot register. kick them out.
             else {
                 console.log("kick them out")
                 // Todo: redirect user to main page with note about admin access only
+                alert("Access Denied")
             }
 
         } catch (err) {
@@ -81,23 +85,30 @@ function Login() {
     // }
 
     return (
-        <div style={{
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundImage: `url(${Background})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
-        }}>
 
-            <Button onClick={handleSignIn} variant="light" size="lg">
-                <span className="buttonText"><FcGoogle /> Login to Admin Dashboard</span>
-            </Button>
+        <div>
+            {user !== undefined && registered ?
+                <Redirect to="/dashboard" />
+                :
+                <div style={{
+                    height: "100vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundImage: `url(${Background})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat'
+                }}>
+
+                    <Button onClick={handleSignIn} variant="light" size="lg">
+                        <span className="buttonText"><FcGoogle /> Login to Admin Dashboard</span>
+                    </Button>
+
+                </div>
+            }
 
         </div>
-
 
     );
 

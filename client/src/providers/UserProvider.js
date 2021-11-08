@@ -1,22 +1,31 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useMemo } from "react";
 import { getAuth } from "firebase/auth"
 
-export const UserContext = createContext({ user: null })
+export const UserContext = createContext({
+    user: '',
+    setUser: () => { }
+})
+
 const auth = getAuth()
 
 const UserProvider = (props) => {
-    const [user, setuser] = useState(null)
+    const [user, setUser] = useState()
+    console.log("user", user)
+    // const value = useMemo(
+    //     () => ({ user, setUser }),
+    //     [user]
+    // );
     useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
             if (user) {
                 const { displayName, email } = user;
-                setuser({
+                setUser({
                     displayName,
                     email
                 })
                 console.log("userprovider", user)
             } else {
-                console.log("no user")
+                console.log("no userprovider")
             }
         })
 
@@ -27,11 +36,13 @@ const UserProvider = (props) => {
 }
 export default UserProvider
 
+
 export const logOut = () => {
     auth.signOut().then(() => {
         console.log('logged out')
     }).catch((error) => {
         console.log(error.message)
-    })
+    }
+    )
 }
 
